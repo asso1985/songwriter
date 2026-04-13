@@ -13,22 +13,23 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.11.0",
     "@songwriter/shared": "workspace:*",
     "radix-ui": "^1.4.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^7.14.0",
-    "@reduxjs/toolkit": "^2.11.0",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "react-router": "^7.14.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
     "@tailwindcss/vite": "^4.2.0",
     "@testing-library/jest-dom": "^6.6.0",
     "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "@vitejs/plugin-react": "^6.0.1",
-    "@playwright/test": "^1.52.0",
     "jsdom": "^26.1.0",
     "tailwindcss": "^4.2.0",
     "typescript": "5.9.2",

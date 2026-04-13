@@ -15,20 +15,33 @@ function renderApp() {
 }
 
 describe("App", () => {
-  it("renders the Songwriter heading", () => {
+  it("renders the app shell with layout structure", () => {
     renderApp();
-    expect(screen.getByText("Songwriter")).toBeInTheDocument();
+    expect(screen.getByRole("banner")).toBeInTheDocument();
+    expect(screen.getByRole("main")).toBeInTheDocument();
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
   });
 
-  it("renders welcome message", () => {
+  it("renders the desktop gate message", () => {
     renderApp();
     expect(
-      screen.getByText(/Welcome to Songwriter/),
+      screen.getByText(
+        "Songwriter is designed for desktop. Please visit on a larger screen.",
+      ),
     ).toBeInTheDocument();
   });
 
-  it("displays sample chord from shared types", () => {
+  it("renders graph area placeholder", () => {
     renderApp();
-    expect(screen.getByText(/C Major/)).toBeInTheDocument();
+    expect(
+      screen.getByText("Chord graph will appear here"),
+    ).toBeInTheDocument();
+  });
+
+  it("renders progression bar placeholder", () => {
+    renderApp();
+    expect(
+      screen.getByText("Progression chords will appear here"),
+    ).toBeInTheDocument();
   });
 });

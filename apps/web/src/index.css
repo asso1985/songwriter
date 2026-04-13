@@ -1,14 +1,59 @@
 @import "tailwindcss";
 
 @theme {
+  /* Primary blue scale */
   --color-primary-50: #EBF1FD;
   --color-primary-100: #D6E3FB;
+  --color-primary-200: #B0C9F7;
+  --color-primary-300: #8AB0F3;
+  --color-primary-400: #729EF1;
   --color-primary-500: #5B8DEF;
+  --color-primary-600: #4070CC;
+  --color-primary-700: #3860BB;
+  --color-primary-800: #2A4A8F;
   --color-primary-900: #1A3A6B;
+
+  /* Surface colors */
   --color-surface: #FAFAF8;
   --color-surface-elevated: #FFFFFF;
+
+  /* Text colors */
   --color-text-primary: #2D2D2D;
   --color-text-secondary: #777777;
+
+  /* Border */
   --color-border: #D0CDC8;
+
+  /* Graph chord colors */
+  --color-chord-current: #5B8DEF;
+  --color-chord-close: #4070CC;
+  --color-chord-medium: #3860BB;
+  --color-chord-distant: #888888;
+  --color-chord-preview: #5B8DEF;
+
+  /* Typography */
   --font-family-sans: 'Nunito', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --leading-tight: 1.2;
+  --leading-normal: 1.5;
+
+  /* Spacing scale */
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+
+  /* Animation timing */
+  --animate-duration-fast: 150ms;
+  --animate-duration-normal: 250ms;
+  --animate-duration-slow: 400ms;
 }
