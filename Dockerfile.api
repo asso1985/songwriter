@@ -1,0 +1,32 @@
+# Build stage
+FROM node:20-alpine AS build
+RUN corepack enable && corepack prepare pnpm@latest --activate
+WORKDIR /app
+
+COPY pnpm-lock.yaml pnpm-workspace.yaml package.json turbo.json ./
+COPY apps/api/package.json apps/api/
+COPY packages/shared/package.json packages/shared/
+
+RUN pnpm install --frozen-lockfile
+
+COPY packages/shared/ packages/shared/
+COPY apps/api/ apps/api/
+
+RUN pnpm turbo run build --filter=@songwriter/api
+
+# Runtime stage
+FROM node:20-alpine
+RUN corepack enable && corepack prepare pnpm@latest --activate
+WORKDIR /app
+
+COPY --from=build /app/pnpm-lock.yaml /app/pnpm-workspace.yaml /app/package.json ./
+COPY --from=build /app/apps/api/package.json apps/api/
+COPY --from=build /app/packages/shared/package.json packages/shared/
+
+RUN pnpm install --frozen-lockfile --prod
+
+COPY --from=build /app/apps/api/dist apps/api/dist
+COPY --from=build /app/packages/shared/dist packages/shared/dist
+
+EXPOSE 4000
+CMD ["node", "apps/api/dist/server.js"]

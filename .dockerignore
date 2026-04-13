@@ -1,0 +1,14 @@
+node_modules
+.git
+.claude
+.cursor
+.agents
+_bmad
+_bmad-output
+docs
+*.md
+.env
+.env.*
+!.env.example
+dist
+.turbo

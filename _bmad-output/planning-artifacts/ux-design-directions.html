@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Songwriter - Design Direction Mockups</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background: #f0f0ed; color: #2D2D2D; }
+
+  /* Navigation */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e0ddd8; padding: 12px 24px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .nav h1 { font-size: 16px; font-weight: 700; margin-right: 16px; color: #2D2D2D; }
+  .nav button { padding: 8px 16px; border: 1px solid #d0cdc8; border-radius: 8px; background: #fff; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .nav button:hover, .nav button.active { background: #2D2D2D; color: #fff; border-color: #2D2D2D; }
+
+  /* Mockup container */
+  .mockups { margin-top: 64px; }
+  .mockup { display: none; min-height: calc(100vh - 64px); }
+  .mockup.active { display: block; }
+  .mockup-label { padding: 16px 24px; background: #fff; border-bottom: 1px solid #e0ddd8; }
+  .mockup-label h2 { font-size: 18px; font-weight: 700; }
+  .mockup-label p { font-size: 13px; color: #777; margin-top: 4px; }
+
+  /* Shared mockup elements */
+  .app-frame { height: calc(100vh - 130px); display: flex; flex-direction: column; background: #FAFAF8; margin: 16px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+  /* Graph area simulation */
+  .graph-area { flex: 1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .graph-bg { width: 100%; height: 100%; position: relative; }
+
+  /* Chord nodes */
+  .node { position: absolute; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  .node:hover { transform: scale(1.15); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+  .node.current { animation: pulse 2s ease-in-out infinite; }
+  .node .emoji { position: absolute; top: -8px; right: -8px; font-size: 14px; opacity: 0; transition: opacity 0.2s; }
+  .node:hover .emoji { opacity: 1; }
+  .node .plus { position: absolute; bottom: -6px; right: -6px; width: 20px; height: 20px; border-radius: 50%; background: #2D2D2D; color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
+  .node:hover .plus { opacity: 0.8; }
+
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(232,135,88,0.4); } 50% { box-shadow: 0 0 0 12px rgba(232,135,88,0); } }
+
+  /* Progression bar */
+  .progression-bar { display: flex; align-items: center; padding: 16px 24px; background: #fff; border-top: 1px solid #e0ddd8; gap: 12px; }
+  .prog-chord { padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.15s; position: relative; }
+  .prog-chord:hover { transform: translateY(-2px); }
+  .prog-chord .remove { position: absolute; top: -6px; right: -6px; width: 16px; height: 16px; border-radius: 50%; background: #ccc; color: #fff; font-size: 10px; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.15s; }
+  .prog-chord:hover .remove { opacity: 1; }
+
+  /* Controls */
+  .controls { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+  .btn { padding: 8px 14px; border-radius: 8px; border: 1px solid #d0cdc8; background: #fff; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .btn:hover { background: #f0eeeb; }
+  .btn-primary { background: #2D2D2D; color: #fff; border-color: #2D2D2D; }
+  .btn-primary:hover { background: #444; }
+  .bpm-control { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #777; }
+  .bpm-control input { width: 48px; text-align: center; border: 1px solid #d0cdc8; border-radius: 6px; padding: 4px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 600; }
+
+  /* Mode toggle */
+  .mode-toggle { display: flex; border-radius: 8px; overflow: hidden; border: 1px solid #d0cdc8; }
+  .mode-toggle span { padding: 6px 14px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .mode-toggle .active-mode { background: #2D2D2D; color: #fff; }
+  .mode-toggle .inactive-mode { background: #fff; color: #999; }
+
+  /* Top bar */
+  .top-bar { display: flex; align-items: center; padding: 12px 24px; background: #fff; border-bottom: 1px solid #e0ddd8; }
+  .key-selector { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+  .key-selector select { padding: 6px 12px; border-radius: 8px; border: 1px solid #d0cdc8; font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 600; background: #fff; }
+  .zoom-control { display: flex; align-items: center; gap: 4px; margin-left: 24px; }
+  .zoom-control .btn { padding: 4px 10px; font-size: 16px; line-height: 1; }
+
+  /* Explanation panel */
+  .explanation-panel { width: 280px; background: #fff; border-left: 1px solid #e0ddd8; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .explanation-panel h3 { font-size: 16px; font-weight: 700; }
+  .explanation-panel p { font-size: 14px; line-height: 1.5; color: #555; }
+  .explanation-panel .chord-label { font-size: 24px; font-weight: 700; }
+
+  /* Direction-specific styles */
+
+  /* Direction 1: Centered Graph, Bottom Bar */
+  .d1 .graph-area { background: #FAFAF8; }
+
+  /* Direction 2: Graph Left, Panel Right */
+  .d2 .main-content { display: flex; flex: 1; }
+  .d2 .graph-area { flex: 1; }
+
+  /* Direction 3: Full Bleed Graph */
+  .d3 .app-frame { margin: 0; border-radius: 0; }
+  .d3 .top-bar { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
+  .d3 .progression-bar { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); }
+  .d3 .graph-area { background: #F5F4F0; }
+
+  /* Direction 4: Warm Accent */
+  .d4 .node.current { background: #E88758 !important; color: #fff !important; }
+  .d4 .prog-chord.active { background: #FFF0E8; border: 1px solid #E88758; color: #E88758; }
+  .d4 .btn-primary { background: #E88758; border-color: #E88758; }
+  .d4 .btn-primary:hover { background: #d4774d; }
+  .d4 .mode-toggle .active-mode { background: #E88758; }
+
+  /* Direction 5: Cool Accent */
+  .d5 .node.current { background: #5B8DEF !important; color: #fff !important; }
+  .d5 .prog-chord.active { background: #EBF1FF; border: 1px solid #5B8DEF; color: #5B8DEF; }
+  .d5 .btn-primary { background: #5B8DEF; border-color: #5B8DEF; }
+  .d5 .btn-primary:hover { background: #4a7de0; }
+  .d5 .mode-toggle .active-mode { background: #5B8DEF; }
+
+  /* Direction 6: Minimal Monochrome */
+  .d6 .node { border: 2px solid #2D2D2D !important; background: #fff !important; color: #2D2D2D !important; }
+  .d6 .node.current { background: #2D2D2D !important; color: #fff !important; }
+  .d6 .prog-chord { background: #f0f0ed; border: 1px solid #d0cdc8; }
+  .d6 .prog-chord.active { background: #2D2D2D; color: #fff; }
+
+  /* Edge lines */
+  .edge { position: absolute; height: 2px; background: #d0cdc8; transform-origin: left center; opacity: 0.4; pointer-events: none; }
+
+  /* Floating explanation tooltip */
+  .floating-tooltip { position: absolute; background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.12); max-width: 260px; font-size: 14px; line-height: 1.5; z-index: 10; }
+  .floating-tooltip .chord-name { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .floating-tooltip .explanation { color: #555; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <h1>Songwriter — Design Directions</h1>
+  <button class="active" onclick="showMockup(1)">1: Centered</button>
+  <button onclick="showMockup(2)">2: Side Panel</button>
+  <button onclick="showMockup(3)">3: Full Bleed</button>
+  <button onclick="showMockup(4)">4: Warm Accent</button>
+  <button onclick="showMockup(5)">5: Cool Accent</button>
+  <button onclick="showMockup(6)">6: Minimal Mono</button>
+</nav>
+
+<div class="mockups">
+
+  <!-- Direction 1: Centered Graph, Bottom Progression -->
+  <div class="mockup active d1" id="mockup-1">
+    <div class="mockup-label">
+      <h2>Direction 1: Centered Graph</h2>
+      <p>Graph dominates center. Top bar for key/zoom. Bottom bar for progression + playback. Clean separation of concerns.</p>
+    </div>
+    <div class="app-frame">
+      <div class="top-bar">
+        <div class="key-selector">
+          <span>Key:</span>
+          <select><option>C Major</option></select>
+        </div>
+        <div class="zoom-control">
+          <button class="btn">−</button>
+          <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+          <button class="btn">+</button>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="mode-toggle">
+            <span class="active-mode">🎵 Flow</span>
+            <span class="inactive-mode">📖 Learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-area">
+        <div class="graph-bg">
+          <div class="node current" style="left:calc(50% - 30px);top:calc(50% - 30px);width:60px;height:60px;background:#E88758;color:#fff;font-size:16px;">C<span class="emoji">👍</span></div>
+          <div class="node" style="left:calc(50% + 60px);top:calc(50% - 50px);width:52px;height:52px;background:#F5E6D0;color:#8B6914;font-size:14px;border:2px solid #E8C888;">G<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 120px);top:calc(50% - 40px);width:52px;height:52px;background:#F5E6D0;color:#8B6914;font-size:14px;border:2px solid #E8C888;">F<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 30px);top:calc(50% + 50px);width:48px;height:48px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;">Am<span class="emoji">🔥</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 90px);top:calc(50% + 60px);width:48px;height:48px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;">Em<span class="emoji">✨</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 130px);top:calc(50% + 20px);width:42px;height:42px;background:#F0E8E8;color:#8B5C5C;font-size:12px;border:2px solid #D8C0C0;">Bb<span class="emoji">🔥</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 170px);top:calc(50% + 20px);width:42px;height:42px;background:#F0E8E8;color:#8B5C5C;font-size:12px;border:2px solid #D8C0C0;">Eb<span class="emoji">🔥</span><span class="plus">+</span></div>
+        </div>
+      </div>
+      <div class="progression-bar">
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">C<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">Am<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">F<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="120">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direction 2: Side Panel for Learn Mode -->
+  <div class="mockup d2" id="mockup-2">
+    <div class="mockup-label">
+      <h2>Direction 2: Side Panel (Learn Mode Active)</h2>
+      <p>Graph on left (70%), explanation panel slides in from right in Learn Mode. Theory context is always visible alongside the graph.</p>
+    </div>
+    <div class="app-frame">
+      <div class="top-bar">
+        <div class="key-selector">
+          <span>Key:</span>
+          <select><option>C Major</option></select>
+        </div>
+        <div class="zoom-control">
+          <button class="btn">−</button>
+          <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+          <button class="btn">+</button>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="mode-toggle">
+            <span class="inactive-mode">🎵 Flow</span>
+            <span class="active-mode">📖 Learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="graph-area">
+          <div class="graph-bg">
+            <div class="node current" style="left:calc(45% - 30px);top:calc(50% - 30px);width:60px;height:60px;background:#E88758;color:#fff;font-size:16px;">C</div>
+            <div class="node" style="left:calc(45% + 60px);top:calc(50% - 50px);width:52px;height:52px;background:#F5E6D0;color:#8B6914;font-size:14px;border:2px solid #E8C888;">G<span class="plus">+</span></div>
+            <div class="node" style="left:calc(45% - 120px);top:calc(50% - 40px);width:52px;height:52px;background:#F5E6D0;color:#8B6914;font-size:14px;border:2px solid #E8C888;">F<span class="plus">+</span></div>
+            <div class="node" style="left:calc(45% + 30px);top:calc(50% + 50px);width:48px;height:48px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;box-shadow:0 0 0 3px rgba(107,91,141,0.3);">Am<span class="plus">+</span></div>
+            <div class="node" style="left:calc(45% - 90px);top:calc(50% + 60px);width:48px;height:48px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;">Em<span class="plus">+</span></div>
+          </div>
+        </div>
+        <div class="explanation-panel">
+          <div class="chord-label" style="color:#6B5B8D;">Am</div>
+          <h3>Why this works</h3>
+          <p>Am is the vi chord in C major — the relative minor. Moving from C to Am creates a bittersweet quality because you're shifting to the minor side of the key without leaving it.</p>
+          <div style="margin-top:12px;padding:12px;background:#f8f7f5;border-radius:8px;">
+            <div style="font-size:12px;font-weight:600;color:#999;margin-bottom:4px;">FUNCTION</div>
+            <div style="font-size:14px;font-weight:600;">vi — Relative Minor</div>
+          </div>
+          <div style="padding:12px;background:#f8f7f5;border-radius:8px;">
+            <div style="font-size:12px;font-weight:600;color:#999;margin-bottom:4px;">CHARACTER</div>
+            <div style="font-size:14px;font-weight:600;">Melancholy, introspective</div>
+          </div>
+        </div>
+      </div>
+      <div class="progression-bar">
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">C<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#E8E0F0;border:1px solid #C8B8E0;color:#6B5B8D;">Am<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="120">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direction 3: Full Bleed -->
+  <div class="mockup d3" id="mockup-3">
+    <div class="mockup-label">
+      <h2>Direction 3: Full Bleed Graph</h2>
+      <p>Graph fills entire viewport. Controls float with translucent backgrounds. Maximum immersion — the graph IS the app.</p>
+    </div>
+    <div class="app-frame">
+      <div style="position:relative;flex:1;">
+        <div class="top-bar" style="border-bottom:none;">
+          <div class="key-selector">
+            <span>Key:</span>
+            <select><option>C Major</option></select>
+          </div>
+          <div class="zoom-control">
+            <button class="btn">−</button>
+            <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+            <button class="btn">+</button>
+          </div>
+          <div style="margin-left:auto;">
+            <div class="mode-toggle">
+              <span class="active-mode">🎵 Flow</span>
+              <span class="inactive-mode">📖 Learn</span>
+            </div>
+          </div>
+        </div>
+        <div class="graph-area" style="position:absolute;top:0;left:0;right:0;bottom:0;">
+          <div class="graph-bg">
+            <div class="node current" style="left:calc(50% - 32px);top:calc(50% - 32px);width:64px;height:64px;background:#E88758;color:#fff;font-size:18px;">C<span class="emoji">👍</span></div>
+            <div class="node" style="left:calc(50% + 80px);top:calc(50% - 60px);width:56px;height:56px;background:#F5E6D0;color:#8B6914;font-size:15px;border:2px solid #E8C888;">G<span class="emoji">👍</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% - 140px);top:calc(50% - 50px);width:56px;height:56px;background:#F5E6D0;color:#8B6914;font-size:15px;border:2px solid #E8C888;">F<span class="emoji">👍</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% + 40px);top:calc(50% + 60px);width:50px;height:50px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;">Am<span class="emoji">🔥</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% - 100px);top:calc(50% + 70px);width:50px;height:50px;background:#E8E0F0;color:#6B5B8D;font-size:14px;border:2px solid #C8B8E0;">Em<span class="emoji">✨</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% + 160px);top:calc(50% + 30px);width:44px;height:44px;background:#F0E8E8;color:#8B5C5C;font-size:12px;border:2px solid #D8C0C0;">Bb<span class="emoji">🔥</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% - 200px);top:calc(50% + 30px);width:44px;height:44px;background:#F0E8E8;color:#8B5C5C;font-size:12px;border:2px solid #D8C0C0;">Eb<span class="emoji">🔥</span><span class="plus">+</span></div>
+            <div class="node" style="left:calc(50% + 180px);top:calc(50% - 100px);width:38px;height:38px;background:#F5F0E8;color:#8B7B5C;font-size:11px;border:2px solid #D8D0C0;">D7<span class="emoji">✨</span><span class="plus">+</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="progression-bar" style="border-top:none;">
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">C<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">Am<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">F<span class="remove">×</span></div>
+        <div class="prog-chord" style="background:#FFF0E8;border:1px solid #E88758;color:#E88758;">G<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn" style="background:#E88758;border-color:#E88758;">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="120">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direction 4: Warm Accent -->
+  <div class="mockup d4" id="mockup-4">
+    <div class="mockup-label">
+      <h2>Direction 4: Warm Coral Accent</h2>
+      <p>Same centered layout as Direction 1, but with warm coral (#E88758) as the primary accent. Musical, energetic, creative.</p>
+    </div>
+    <div class="app-frame">
+      <div class="top-bar">
+        <div class="key-selector">
+          <span>Key:</span>
+          <select><option>G Major</option></select>
+        </div>
+        <div class="zoom-control">
+          <button class="btn">−</button>
+          <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+          <button class="btn">+</button>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="mode-toggle">
+            <span class="active-mode">🎵 Flow</span>
+            <span class="inactive-mode">📖 Learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-area">
+        <div class="graph-bg">
+          <div class="node current" style="left:calc(50% - 30px);top:calc(50% - 30px);width:60px;height:60px;font-size:16px;">G<span class="emoji">👍</span></div>
+          <div class="node" style="left:calc(50% + 60px);top:calc(50% - 50px);width:52px;height:52px;background:#FFF5EE;color:#C46A3A;font-size:14px;border:2px solid #E8A878;">D<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 120px);top:calc(50% - 40px);width:52px;height:52px;background:#FFF5EE;color:#C46A3A;font-size:14px;border:2px solid #E8A878;">C<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 30px);top:calc(50% + 50px);width:48px;height:48px;background:#FFF0E8;color:#B85A30;font-size:14px;border:2px solid #E89060;">Em<span class="emoji">✨</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 90px);top:calc(50% + 60px);width:48px;height:48px;background:#FFF0E8;color:#B85A30;font-size:14px;border:2px solid #E89060;">Bm<span class="emoji">🔥</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 150px);top:calc(50% + 10px);width:40px;height:40px;background:#F8E8E0;color:#A06848;font-size:12px;border:2px solid #D8B8A0;">Bb<span class="emoji">🔥</span><span class="plus">+</span></div>
+        </div>
+      </div>
+      <div class="progression-bar">
+        <div class="prog-chord active">G<span class="remove">×</span></div>
+        <div class="prog-chord active">Em<span class="remove">×</span></div>
+        <div class="prog-chord active">C<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="90">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direction 5: Cool Accent -->
+  <div class="mockup d5" id="mockup-5">
+    <div class="mockup-label">
+      <h2>Direction 5: Cool Blue Accent</h2>
+      <p>Same layout, cool blue (#5B8DEF) accent. Calm, focused, intellectual. Emphasizes the learning/theory side.</p>
+    </div>
+    <div class="app-frame">
+      <div class="top-bar">
+        <div class="key-selector">
+          <span>Key:</span>
+          <select><option>A Minor</option></select>
+        </div>
+        <div class="zoom-control">
+          <button class="btn">−</button>
+          <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+          <button class="btn">+</button>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="mode-toggle">
+            <span class="active-mode">🎵 Flow</span>
+            <span class="inactive-mode">📖 Learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-area">
+        <div class="graph-bg">
+          <div class="node current" style="left:calc(50% - 30px);top:calc(50% - 30px);width:60px;height:60px;font-size:16px;">Am<span class="emoji">👍</span></div>
+          <div class="node" style="left:calc(50% + 60px);top:calc(50% - 50px);width:52px;height:52px;background:#EBF1FF;color:#4070CC;font-size:14px;border:2px solid #A0C0F0;">Dm<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 120px);top:calc(50% - 40px);width:52px;height:52px;background:#EBF1FF;color:#4070CC;font-size:14px;border:2px solid #A0C0F0;">Em<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 30px);top:calc(50% + 50px);width:48px;height:48px;background:#E8F0FF;color:#3860BB;font-size:14px;border:2px solid #90B0E8;">F<span class="emoji">✨</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 90px);top:calc(50% + 60px);width:48px;height:48px;background:#E8F0FF;color:#3860BB;font-size:14px;border:2px solid #90B0E8;">G<span class="emoji">🔥</span><span class="plus">+</span></div>
+        </div>
+      </div>
+      <div class="progression-bar">
+        <div class="prog-chord active">Am<span class="remove">×</span></div>
+        <div class="prog-chord active">F<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="85">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Direction 6: Minimal Monochrome -->
+  <div class="mockup d6" id="mockup-6">
+    <div class="mockup-label">
+      <h2>Direction 6: Minimal Monochrome</h2>
+      <p>Black and white with warm gray. Ultra-clean, lets the spatial relationships speak. Emoji cues provide the only color.</p>
+    </div>
+    <div class="app-frame">
+      <div class="top-bar">
+        <div class="key-selector">
+          <span>Key:</span>
+          <select><option>D Major</option></select>
+        </div>
+        <div class="zoom-control">
+          <button class="btn">−</button>
+          <span style="font-size:12px;font-weight:600;color:#999;">Zoom</span>
+          <button class="btn">+</button>
+        </div>
+        <div style="margin-left:auto;">
+          <div class="mode-toggle">
+            <span class="active-mode">🎵 Flow</span>
+            <span class="inactive-mode">📖 Learn</span>
+          </div>
+        </div>
+      </div>
+      <div class="graph-area">
+        <div class="graph-bg">
+          <div class="node current" style="left:calc(50% - 30px);top:calc(50% - 30px);width:60px;height:60px;font-size:16px;">D<span class="emoji">👍</span></div>
+          <div class="node" style="left:calc(50% + 60px);top:calc(50% - 50px);width:52px;height:52px;font-size:14px;">A<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 120px);top:calc(50% - 40px);width:52px;height:52px;font-size:14px;">G<span class="emoji">👍</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 30px);top:calc(50% + 50px);width:48px;height:48px;font-size:14px;">Bm<span class="emoji">✨</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% - 90px);top:calc(50% + 60px);width:48px;height:48px;font-size:14px;">Em<span class="emoji">✨</span><span class="plus">+</span></div>
+          <div class="node" style="left:calc(50% + 150px);top:calc(50% + 10px);width:40px;height:40px;font-size:12px;">Bb<span class="emoji">🔥</span><span class="plus">+</span></div>
+        </div>
+      </div>
+      <div class="progression-bar">
+        <div class="prog-chord active">D<span class="remove">×</span></div>
+        <div class="prog-chord active">Bm<span class="remove">×</span></div>
+        <div class="prog-chord active">G<span class="remove">×</span></div>
+        <div class="prog-chord active">A<span class="remove">×</span></div>
+        <div style="width:1px;height:24px;background:#e0ddd8;"></div>
+        <div class="controls">
+          <button class="btn-primary btn" style="background:#2D2D2D;border-color:#2D2D2D;">▶ Loop</button>
+          <button class="btn">⏹</button>
+          <div class="bpm-control">
+            <input type="text" value="110">
+            <span>BPM</span>
+            <button class="btn" style="padding:4px 8px;font-size:11px;">Tap</button>
+          </div>
+          <button class="btn" style="color:#999;font-size:12px;">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showMockup(n) {
+  document.querySelectorAll('.mockup').forEach(m => m.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('mockup-' + n).classList.add('active');
+  document.querySelectorAll('.nav button')[n-1].classList.add('active');
+}
+</script>
+
+</body>
+</html>
