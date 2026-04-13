@@ -15,6 +15,11 @@ app.use(
   }),
 );
 app.use(express.json());
+
+// Health route before rate limiter
+app.use("/api", healthRouter);
+
+// Rate limiter for non-health routes
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -25,7 +30,6 @@ app.use(
 );
 
 // Routes
-app.use("/api", healthRouter);
 app.use("/api", explainRouter);
 
 // Error handler

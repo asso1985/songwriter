@@ -10,7 +10,7 @@ export function errorHandler(
   console.error("Unhandled error:", err.message);
 
   const apiError: ApiError = {
-    message: err.message || "Internal server error",
+    message: "Internal server error",
     code: "INTERNAL_ERROR",
     status: 500,
   };

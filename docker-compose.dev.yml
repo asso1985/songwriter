@@ -3,8 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.web
-      target: build
-    command: pnpm --filter @songwriter/web dev --host 0.0.0.0
+      target: dev
     ports:
       - "3000:3000"
     volumes:
@@ -19,8 +18,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.api
-      target: build
-    command: pnpm --filter @songwriter/api dev
+      target: dev
     ports:
       - "4000:4000"
     volumes:

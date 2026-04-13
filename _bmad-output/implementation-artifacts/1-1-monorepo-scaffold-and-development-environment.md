@@ -1,6 +1,6 @@
 # Story 1.1: Monorepo Scaffold & Development Environment
 
-Status: review
+Status: done
 
 ## Story
 
@@ -87,6 +87,22 @@ So that all subsequent features have a consistent development and deployment fou
   - [x] Docker Compose dev starts all services
   - [x] `GET /api/health` returns 200
   - [x] Vite dev server loads React app at localhost:3000
+
+### Review Findings
+
+- [x] [Review][Defer] Railway config is API-only — missing frontend static site config, Redis managed instance, and HTTPS enforcement (AC6) — deferred, will finalize during actual deployment
+- [x] [Review][Patch] No input validation on `/explain` request body — added runtime validation with proper 400 response
+- [x] [Review][Patch] Error handler leaks internal error messages to clients — now returns generic "Internal server error"
+- [x] [Review][Patch] Rate limiter applied globally including `/api/health` — health route now registered before rate limiter
+- [x] [Review][Patch] Redis client created but never used or connected — refactored to lazy singleton with `getRedisClient()` and `await client.connect()`
+- [x] [Review][Patch] `corepack prepare pnpm@latest` in Dockerfiles is non-deterministic — changed to `corepack enable` (reads `packageManager` field)
+- [x] [Review][Patch] Docker dev build runs unnecessary production build — added dedicated `dev` stage in Dockerfiles, dev compose targets `dev` stage
+- [x] [Review][Patch] Real LLM service file renamed to `llm-service.real.ts` — naming symmetry restored
+- [x] [Review][Patch] Health test now actually tests the endpoint — real HTTP request verifying 200 status and response body
+- [x] [Review][Defer] CORS origin is a single string, not a list — will need allowlist for multi-origin in production — deferred, pre-existing design choice
+- [x] [Review][Defer] LLM service instantiated at module load, not per-request — acceptable for now, address when adding real LLM integration — deferred
+- [x] [Review][Defer] `currentKey` initialized to empty string — no consumers yet, will be addressed in Story 1.3 Key Selector — deferred
+- [x] [Review][Defer] Docker Compose exposes Redis port 6379 to host — acceptable for local dev, review before production deployment — deferred
 
 ## Dev Notes
 

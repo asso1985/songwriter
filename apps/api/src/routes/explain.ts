@@ -5,9 +5,28 @@ import { createLlmService } from "../services/llm-service.factory.js";
 const router = Router();
 const llmService = createLlmService();
 
+function isValidExplainRequest(body: unknown): body is ExplainRequest {
+  if (typeof body !== "object" || body === null) return false;
+  const b = body as Record<string, unknown>;
+  return (
+    typeof b.chordId === "string" &&
+    Array.isArray(b.progressionContext) &&
+    typeof b.key === "string" &&
+    (b.mode === "flow" || b.mode === "learn")
+  );
+}
+
 router.post("/explain", async (req, res) => {
-  const request = req.body as ExplainRequest;
-  const response = await llmService.getExplanation(request);
+  if (!isValidExplainRequest(req.body)) {
+    res.status(400).json({
+      message: "Invalid request: chordId, progressionContext, key, and mode are required",
+      code: "VALIDATION_ERROR",
+      status: 400,
+    });
+    return;
+  }
+
+  const response = await llmService.getExplanation(req.body);
   res.json(response);
 });
 

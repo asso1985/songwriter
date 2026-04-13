@@ -1,6 +1,6 @@
-# Build stage
-FROM node:20-alpine AS build
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Dependencies stage
+FROM node:20-alpine AS deps
+RUN corepack enable
 WORKDIR /app
 
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json turbo.json ./
@@ -12,6 +12,12 @@ RUN pnpm install --frozen-lockfile
 COPY packages/shared/ packages/shared/
 COPY apps/web/ apps/web/
 
+# Dev stage (used by docker-compose.dev.yml)
+FROM deps AS dev
+CMD ["pnpm", "--filter", "@songwriter/web", "dev", "--host", "0.0.0.0"]
+
+# Build stage
+FROM deps AS build
 RUN pnpm turbo run build --filter=@songwriter/web
 
 # Serve stage

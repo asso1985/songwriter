@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { createLlmService } from "../services/llm-service.factory.js";
 import { MockLlmService } from "../services/llm-service.mock.js";
-import { RealLlmService } from "../services/llm-service.js";
+import { RealLlmService } from "../services/llm-service.real.js";
 
 describe("createLlmService", () => {
   const originalEnv = process.env.LLM_PROVIDER;

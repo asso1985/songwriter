@@ -1,13 +1,17 @@
-import { createClient } from "redis";
+import { createClient, type RedisClientType } from "redis";
 
-export function createRedisClient() {
+let client: RedisClientType | null = null;
+
+export async function getRedisClient(): Promise<RedisClientType> {
+  if (client) return client;
+
   const url = process.env.REDIS_URL ?? "redis://localhost:6379";
-
-  const client = createClient({ url });
+  client = createClient({ url });
 
   client.on("error", (err) => {
     console.error("Redis client error:", err);
   });
 
+  await client.connect();
   return client;
 }
