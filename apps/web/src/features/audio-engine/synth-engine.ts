@@ -23,9 +23,15 @@ export interface ActiveChord {
  * Play a chord by creating oscillators for each frequency.
  * Signal chain per note: Oscillator (triangle) → GainNode (ADSR) → BiquadFilter (lowpass) → masterGain → destination
  */
+export interface PlayChordOptions {
+  /** Auto-release after this many milliseconds. Omit for indefinite sustain. */
+  duration?: number;
+}
+
 export function playChord(
   ctx: AudioContext,
   frequencies: number[],
+  options?: PlayChordOptions,
 ): ActiveChord {
   const now = ctx.currentTime;
 
@@ -73,6 +79,42 @@ export function playChord(
     filters.push(filter);
   }
 
+  // Schedule auto-release if duration provided
+  if (options?.duration != null) {
+    const releaseStart = now + options.duration / 1000;
+    const releaseEnd = releaseStart + RELEASE_TIME;
+
+    // Ramp each note gain to near-zero at release
+    for (const gain of noteGains) {
+      gain.gain.setValueAtTime(SUSTAIN_LEVEL, releaseStart);
+      gain.gain.exponentialRampToValueAtTime(0.001, releaseEnd);
+    }
+
+    // Ramp master gain to near-zero
+    masterGain.gain.setValueAtTime(MASTER_GAIN, releaseStart);
+    masterGain.gain.exponentialRampToValueAtTime(0.001, releaseEnd);
+
+    // Stop oscillators after release
+    const stopTime = releaseEnd + 0.01;
+    for (const osc of oscillators) {
+      osc.stop(stopTime);
+    }
+
+    // Disconnect all nodes after stop
+    setTimeout(() => {
+      for (const osc of oscillators) {
+        osc.disconnect();
+      }
+      for (const gain of noteGains) {
+        gain.disconnect();
+      }
+      for (const filter of filters) {
+        filter.disconnect();
+      }
+      masterGain.disconnect();
+    }, (options.duration + RELEASE_TIME * 1000 + 100));
+  }
+
   return { masterGain, oscillators, noteGains, filters };
 }
 
@@ -93,7 +135,11 @@ export function stopChord(ctx: AudioContext, chord: ActiveChord): void {
   // Schedule cleanup after crossfade completes
   const cleanupTime = now + CROSSFADE_TIME + 0.01;
   for (const osc of chord.oscillators) {
-    osc.stop(cleanupTime);
+    try {
+      osc.stop(cleanupTime);
+    } catch {
+      // Already stopped (e.g., auto-release fired before manual stop)
+    }
   }
 
   // Disconnect all nodes after stop

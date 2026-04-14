@@ -2,11 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   selectHoveredNode,
+  selectSelectedNode,
   selectViewMode,
   setHoveredNode,
   setSelectedNode,
   setViewMode,
 } from "../../store/slices/graph-slice";
+import { addChord } from "../../store/slices/progression-slice";
 import { getChordsByKey } from "../../data/get-chords-by-key";
 import { useForceSimulation, type GraphNode } from "./use-force-simulation";
 import GraphCanvas from "./graph-canvas";
@@ -22,9 +24,11 @@ interface ChordGraphProps {
 export default function ChordGraph({ currentKey }: ChordGraphProps) {
   const dispatch = useAppDispatch();
   const hoveredNodeId = useAppSelector(selectHoveredNode);
+  const selectedNodeId = useAppSelector(selectSelectedNode);
   const viewMode = useAppSelector(selectViewMode);
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
+  const [recenterNodeId, setRecenterNodeId] = useState<string | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -82,7 +86,22 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
     [dispatch],
   );
 
-  // Keyboard shortcuts for zoom
+  const handleCommit = useCallback(
+    (nodeId: string) => {
+      dispatch(addChord(nodeId));
+      dispatch(setSelectedNode(null));
+      setRecenterNodeId(nodeId);
+      // Clear recenter target after animation completes
+      setTimeout(() => setRecenterNodeId(null), 350);
+    },
+    [dispatch],
+  );
+
+  const handleDismissPreview = useCallback(() => {
+    dispatch(setSelectedNode(null));
+  }, [dispatch]);
+
+  // Keyboard shortcuts for zoom + Escape to dismiss preview
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
@@ -93,6 +112,8 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
       } else if (e.key === "-") {
         e.preventDefault();
         dispatch(setViewMode("zoomed-out"));
+      } else if (e.key === "Escape") {
+        dispatch(setSelectedNode(null));
       }
     }
 
@@ -114,12 +135,16 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
         <GraphCanvas
           nodes={visibleNodes}
           hoveredNodeId={hoveredNodeId}
+          previewingNodeId={selectedNodeId}
+          recenterNodeId={recenterNodeId}
           width={size.width}
           height={size.height}
           panEnabled={viewMode === "zoomed-out"}
           currentKey={currentKey}
           onNodeHover={handleNodeHover}
           onNodeClick={handleNodeClick}
+          onCommit={handleCommit}
+          onDismissPreview={handleDismissPreview}
         />
       )}
       <ZoomControls />

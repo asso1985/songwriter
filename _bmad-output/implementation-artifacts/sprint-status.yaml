@@ -54,7 +54,7 @@ development_status:
   # Epic 2: Build and Hear Progressions
   epic-2: in-progress
   2-1-web-audio-engine-and-chord-synthesis: done
-  2-2-click-to-preview-and-commit-to-progression: backlog
+  2-2-click-to-preview-and-commit-to-progression: done
   2-3-progression-bar-and-chord-management: backlog
   2-4-full-progression-playback-and-looping: backlog
   2-5-tempo-control-and-tap-tempo: backlog

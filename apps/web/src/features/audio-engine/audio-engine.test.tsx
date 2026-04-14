@@ -6,17 +6,21 @@ import audioReducer from "../../store/slices/audio-slice";
 import graphReducer, {
   setSelectedNode,
 } from "../../store/slices/graph-slice";
-import progressionReducer from "../../store/slices/progression-slice";
+import progressionReducer, {
+  addChord,
+} from "../../store/slices/progression-slice";
 import aiReducer from "../../store/slices/ai-slice";
 import { AudioEngine } from "./audio-engine";
 
 // Mock the useAudioContext hook
 const mockPlayChord = vi.fn();
+const mockPlaySequence = vi.fn();
 const mockStopAll = vi.fn();
 
 vi.mock("./use-audio-context", () => ({
   useAudioContext: () => ({
     playChord: mockPlayChord,
+    playSequence: mockPlaySequence,
     stopAll: mockStopAll,
     isReady: true,
   }),
@@ -39,6 +43,7 @@ describe("AudioEngine", () => {
   beforeEach(() => {
     store = createTestStore();
     mockPlayChord.mockClear();
+    mockPlaySequence.mockClear();
     mockStopAll.mockClear();
   });
 
@@ -51,7 +56,7 @@ describe("AudioEngine", () => {
     expect(container.innerHTML).toBe("");
   });
 
-  it("plays chord when selectedNode changes", () => {
+  it("plays single chord with preview duration when no progression context exists", () => {
     render(
       <Provider store={store}>
         <AudioEngine />
@@ -62,7 +67,49 @@ describe("AudioEngine", () => {
       store.dispatch(setSelectedNode("Am"));
     });
 
-    expect(mockPlayChord).toHaveBeenCalledWith("Am");
+    expect(mockPlayChord).toHaveBeenCalledWith("Am", 2000);
+    expect(mockPlaySequence).not.toHaveBeenCalled();
+  });
+
+  it("plays sequence when progression has chords", () => {
+    render(
+      <Provider store={store}>
+        <AudioEngine />
+      </Provider>,
+    );
+
+    act(() => {
+      store.dispatch(addChord("C"));
+      store.dispatch(addChord("F"));
+    });
+
+    act(() => {
+      store.dispatch(setSelectedNode("G"));
+    });
+
+    expect(mockPlaySequence).toHaveBeenCalledWith(["C", "F"], "G");
+    expect(mockPlayChord).not.toHaveBeenCalled();
+  });
+
+  it("uses last 3 chords as context when progression is longer", () => {
+    render(
+      <Provider store={store}>
+        <AudioEngine />
+      </Provider>,
+    );
+
+    act(() => {
+      store.dispatch(addChord("C"));
+      store.dispatch(addChord("Am"));
+      store.dispatch(addChord("F"));
+      store.dispatch(addChord("G"));
+    });
+
+    act(() => {
+      store.dispatch(setSelectedNode("Em"));
+    });
+
+    expect(mockPlaySequence).toHaveBeenCalledWith(["Am", "F", "G"], "Em");
   });
 
   it("dispatches setPreviewChord when selectedNode changes", () => {
@@ -77,25 +124,6 @@ describe("AudioEngine", () => {
     });
 
     expect(store.getState().audio.previewChord).toBe("G7");
-  });
-
-  it("does not play when selectedNode is cleared to null", () => {
-    render(
-      <Provider store={store}>
-        <AudioEngine />
-      </Provider>,
-    );
-
-    act(() => {
-      store.dispatch(setSelectedNode("Am"));
-    });
-    mockPlayChord.mockClear();
-
-    act(() => {
-      store.dispatch(setSelectedNode(null));
-    });
-
-    expect(mockPlayChord).not.toHaveBeenCalled();
   });
 
   it("calls stopAll when selectedNode is cleared to null", () => {
@@ -117,7 +145,7 @@ describe("AudioEngine", () => {
     expect(mockStopAll).toHaveBeenCalled();
   });
 
-  it("plays different chords in sequence", () => {
+  it("does not play when selectedNode is cleared to null", () => {
     render(
       <Provider store={store}>
         <AudioEngine />
@@ -125,18 +153,16 @@ describe("AudioEngine", () => {
     );
 
     act(() => {
-      store.dispatch(setSelectedNode("C"));
+      store.dispatch(setSelectedNode("Am"));
     });
+    mockPlayChord.mockClear();
+    mockPlaySequence.mockClear();
+
     act(() => {
-      store.dispatch(setSelectedNode("F"));
-    });
-    act(() => {
-      store.dispatch(setSelectedNode("G7"));
+      store.dispatch(setSelectedNode(null));
     });
 
-    expect(mockPlayChord).toHaveBeenCalledTimes(3);
-    expect(mockPlayChord).toHaveBeenNthCalledWith(1, "C");
-    expect(mockPlayChord).toHaveBeenNthCalledWith(2, "F");
-    expect(mockPlayChord).toHaveBeenNthCalledWith(3, "G7");
+    expect(mockPlayChord).not.toHaveBeenCalled();
+    expect(mockPlaySequence).not.toHaveBeenCalled();
   });
 });

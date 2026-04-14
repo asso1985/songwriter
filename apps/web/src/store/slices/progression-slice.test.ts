@@ -2,8 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import progressionReducer, {
   setCurrentKey,
   startEditingKey,
+  addChord,
+  removeChord,
+  clearChords,
   selectCurrentKey,
   selectIsEditingKey,
+  selectChords,
 } from "./progression-slice";
 import graphReducer from "./graph-slice";
 import audioReducer from "./audio-slice";
@@ -52,5 +56,56 @@ describe("progressionSlice", () => {
     expect(selectIsEditingKey(store.getState())).toBe(false);
     store.dispatch(startEditingKey());
     expect(selectIsEditingKey(store.getState())).toBe(true);
+  });
+
+  it("has empty chords initially", () => {
+    const store = createTestStore();
+    expect(selectChords(store.getState())).toEqual([]);
+  });
+
+  it("addChord appends a chord to the progression", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    expect(selectChords(store.getState())).toEqual(["C"]);
+  });
+
+  it("addChord appends multiple chords in order", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    store.dispatch(addChord("F"));
+    expect(selectChords(store.getState())).toEqual(["C", "Am", "F"]);
+  });
+
+  it("removeChord removes chord at the given index", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    store.dispatch(addChord("F"));
+    store.dispatch(removeChord(1));
+    expect(selectChords(store.getState())).toEqual(["C", "F"]);
+  });
+
+  it("removeChord at index 0 removes first chord", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    store.dispatch(removeChord(0));
+    expect(selectChords(store.getState())).toEqual(["Am"]);
+  });
+
+  it("clearChords resets chords to empty", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    store.dispatch(clearChords());
+    expect(selectChords(store.getState())).toEqual([]);
+  });
+
+  it("selectChords returns the chords array", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("G"));
+    store.dispatch(addChord("Em"));
+    expect(selectChords(store.getState())).toEqual(["G", "Em"]);
   });
 });

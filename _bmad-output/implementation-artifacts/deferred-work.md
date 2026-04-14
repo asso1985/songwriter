@@ -38,3 +38,12 @@
 - setBpm accepts zero, negative, or NaN without validation — no consumer yet
 - stopChord setTimeout uses wall-clock time vs audio-clock drift — negligible in practice
 - Redux stopAll and hook stopAll are different things — semantic gap for future consumers
+
+## Deferred from: code review of 2-2-click-to-preview-and-commit-to-progression (2026-04-14)
+
+- chords in AudioEngine useEffect dependency may cause spurious re-triggers — guarded by prevNodeRef
+- setTimeout used for sequence scheduling instead of Web Audio time — acceptable for MVP, timing drift negligible
+- Two competing render useEffects with overlapping dependencies — works correctly
+- Recenter animation uses stale node position — negligible in 300ms window
+- recenterNodeId setTimeout has no cleanup on unmount — React suppresses warning
+- No AudioContext cleanup on hook unmount — pre-existing from Story 2.1

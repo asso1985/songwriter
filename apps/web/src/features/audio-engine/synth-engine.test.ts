@@ -174,6 +174,44 @@ describe("playChord", () => {
     expect(ctx.createOscillator).toHaveBeenCalledTimes(4);
     expect(result.oscillators).toHaveLength(4);
   });
+
+  it("schedules auto-release when duration option provided", () => {
+    vi.useFakeTimers();
+    playChord(ctx, [440], { duration: 2000 });
+
+    // Note gain should have release scheduled at 2.0s (2000ms/1000)
+    const noteGain = ctx._gainNodes[1];
+    expect(noteGain.gain.setValueAtTime).toHaveBeenCalledWith(0.6, 2);
+    expect(
+      noteGain.gain.exponentialRampToValueAtTime,
+    ).toHaveBeenCalledWith(0.001, expect.closeTo(2.3, 1));
+
+    // Master gain should also have release scheduled
+    const masterGain = ctx._gainNodes[0];
+    expect(masterGain.gain.exponentialRampToValueAtTime).toHaveBeenCalledWith(
+      0.001,
+      expect.closeTo(2.3, 1),
+    );
+    vi.useRealTimers();
+  });
+
+  it("stops oscillators after auto-release", () => {
+    vi.useFakeTimers();
+    playChord(ctx, [440], { duration: 2000 });
+
+    // Oscillator stop scheduled after release
+    expect(ctx._oscillators[0].stop).toHaveBeenCalledWith(
+      expect.closeTo(2.31, 1),
+    );
+    vi.useRealTimers();
+  });
+
+  it("does not schedule auto-release when no duration option", () => {
+    playChord(ctx, [440]);
+
+    // Oscillator should NOT have stop called (sustain indefinitely)
+    expect(ctx._oscillators[0].stop).not.toHaveBeenCalled();
+  });
 });
 
 describe("stopChord", () => {
