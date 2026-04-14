@@ -63,6 +63,7 @@ export default function ChordChip({
         bg-primary-50 text-primary-500 cursor-pointer select-none
         transition-all duration-200
         hover:-translate-y-0.5
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500
         ${isPulsing ? "scale-110" : "scale-100"}
         ${isRemoving ? "opacity-0 scale-75" : "opacity-100"}
         ${isEntering ? "opacity-0 scale-75" : ""}

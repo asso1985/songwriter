@@ -130,7 +130,14 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full h-full" data-testid="chord-graph">
+    <div
+      ref={containerRef}
+      className="relative w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-inset"
+      data-testid="chord-graph"
+      tabIndex={0}
+      role="application"
+      aria-label="Chord network graph - use arrow keys to navigate nodes, Enter to preview"
+    >
       {size.width > 0 && size.height > 0 && (
         <GraphCanvas
           nodes={visibleNodes}

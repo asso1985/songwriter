@@ -209,7 +209,7 @@ export default function ProgressionBar() {
         {!isEmpty && (
           <button
             type="button"
-            className="text-xs text-text-secondary hover:text-red-500 transition-colors"
+            className="text-xs text-text-secondary hover:text-red-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded"
             onClick={handleClear}
           >
             Clear
@@ -217,7 +217,7 @@ export default function ProgressionBar() {
         )}
         <button
           type="button"
-          className="text-sm disabled:opacity-40 transition-colors"
+          className="text-sm disabled:opacity-40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 rounded"
           disabled={!canPlay}
           aria-label={isPlaying ? "Stop playback" : "Play progression"}
           onClick={handlePlayStop}
@@ -233,13 +233,14 @@ export default function ProgressionBar() {
           onChange={handleBpmChange}
           onBlur={handleBpmBlur}
           aria-label="Tempo in beats per minute"
-          className="w-14 text-center text-sm border border-border rounded px-1 py-0.5 bg-surface text-text-primary"
+          className="w-14 text-center text-sm border border-border rounded px-1 py-0.5 bg-surface text-text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
         />
         <span className="text-xs text-text-secondary">BPM</span>
         <button
           type="button"
           aria-label="Tap to set tempo"
           className={`text-xs px-2 py-1 rounded border border-border transition-colors
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500
             ${isTapping ? "bg-primary-100 border-primary-400" : "bg-surface hover:bg-primary-50"}`}
           onClick={handleTap}
         >

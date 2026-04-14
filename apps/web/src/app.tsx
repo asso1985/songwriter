@@ -12,6 +12,7 @@ import ProgressionBar from "./features/progression-builder/progression-bar";
 import ModeToggle from "./features/ai-explanation/mode-toggle";
 import ExplanationPanel from "./features/ai-explanation/explanation-panel";
 import { useExplanationTrigger } from "./features/ai-explanation/use-explanation-trigger";
+import { useKeyboardShortcuts } from "./features/keyboard-shortcuts/use-keyboard-shortcuts";
 
 function GraphAreaContent() {
   const currentKey = useAppSelector(selectCurrentKey);
@@ -31,6 +32,8 @@ function AppContent() {
 
   // Trigger explanation fetch when chord is selected in Learn Mode
   useExplanationTrigger();
+  // Global keyboard shortcuts
+  useKeyboardShortcuts();
 
   return (
     <Layout
