@@ -209,4 +209,45 @@ describe("ProgressionBar", () => {
     await user.click(screen.getByRole("button", { name: "Stop playback" }));
     expect(store.getState().audio.isPlaying).toBe(false);
   });
+
+  it("shows BPM input with default value 120", () => {
+    const store = createTestStore();
+    renderWithStore(store);
+    const bpmInput = screen.getByRole("spinbutton", {
+      name: "Tempo in beats per minute",
+    });
+    expect(bpmInput).toBeInTheDocument();
+    expect(bpmInput).toHaveValue(120);
+  });
+
+  it("editing BPM input dispatches setBpm", async () => {
+    const store = createTestStore();
+    renderWithStore(store);
+
+    const bpmInput = screen.getByRole("spinbutton", {
+      name: "Tempo in beats per minute",
+    });
+    // Use fireEvent to set value directly (avoids keystroke-by-keystroke clamping)
+    fireEvent.change(bpmInput, { target: { value: "90" } });
+    expect(store.getState().audio.bpm).toBe(90);
+  });
+
+  it("shows Tap tempo button with correct aria-label", () => {
+    const store = createTestStore();
+    renderWithStore(store);
+    const tapBtn = screen.getByRole("button", { name: "Tap to set tempo" });
+    expect(tapBtn).toBeInTheDocument();
+  });
+
+  it("tap tempo does not change BPM with fewer than 4 taps", async () => {
+    const user = userEvent.setup();
+    const store = createTestStore();
+    renderWithStore(store);
+
+    const tapBtn = screen.getByRole("button", { name: "Tap to set tempo" });
+    await user.click(tapBtn);
+    await user.click(tapBtn);
+    await user.click(tapBtn);
+    expect(store.getState().audio.bpm).toBe(120); // unchanged
+  });
 });

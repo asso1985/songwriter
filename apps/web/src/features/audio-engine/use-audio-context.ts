@@ -15,7 +15,7 @@ interface UseAudioContextReturn {
   /** Start looping playback. onChordChange fires with the current chord index on each beat. */
   playLoop: (
     chordsRef: React.RefObject<string[]>,
-    bpm: number,
+    bpmRef: React.RefObject<number>,
     onChordChange: (index: number) => void,
   ) => void;
   stopLoop: () => void;
@@ -157,7 +157,7 @@ export function useAudioContext(): UseAudioContextReturn {
   const playLoop = useCallback(
     (
       chordsRef: React.RefObject<string[]>,
-      bpm: number,
+      bpmRef: React.RefObject<number>,
       onChordChange: (index: number) => void,
     ) => {
       const currentPlayId = ++playIdRef.current;
@@ -178,7 +178,8 @@ export function useAudioContext(): UseAudioContextReturn {
             // Clear previous cycle's timeout IDs to prevent unbounded growth
             scheduledTimeoutsRef.current = [];
 
-            const beatDuration = 60000 / bpm;
+            const currentBpm = bpmRef.current && bpmRef.current > 0 ? bpmRef.current : 120;
+            const beatDuration = 60000 / currentBpm;
 
             for (let i = 0; i < chords.length; i++) {
               const delay = i * beatDuration;
