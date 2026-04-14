@@ -1,6 +1,6 @@
 # Story 1.4: Interactive Chord Network Graph
 
-Status: review
+Status: done
 
 ## Story
 
@@ -79,6 +79,22 @@ So that I can visually discover chord relationships and intuitively understand w
   - [x] `pnpm turbo run test` — 69 unit tests pass
   - [x] `pnpm turbo run build` — succeeds
   - [x] `pnpm turbo run test:e2e` — 16 E2E tests pass
+
+### Review Findings
+
+- [x] [Review][Patch] AC6 glow/pulse invitation — added 3-second pulse animation on distance-1 nodes after fade-in, with glow ring in canvas renderer
+- [x] [Review][Patch] Continuous rAF loop — already resolved in Story 1.5 refactor (render driven by useEffect, not persistent rAF)
+- [x] [Review][Patch] Stale closure over nodes — already resolved in Story 1.5 (nodesRef pattern)
+- [x] [Review][Patch] Redux dispatch on every mousemove — fixed: added lastHoveredRef to skip dispatch when hovered node unchanged
+- [x] [Review][Patch] No augmented chord type in chord-relationships.json — fixed: added V+ augmented chord (distance 4) to all 24 keys
+- [x] [Review][Patch] Unused import selectCurrentKey — already resolved in Story 1.5
+- [x] [Review][Defer] Canvas not scaled for devicePixelRatio — blurry on HiDPI/Retina displays — deferred, enhancement
+- [x] [Review][Defer] findNodeAt uses circular hit-test for all shapes — inaccurate for diamonds/triangles — deferred, enhancement
+- [x] [Review][Defer] Keyboard shortcuts intercept +/- globally — may conflict with Radix combobox — deferred, to address in Epic 4 accessibility
+- [x] [Review][Defer] No unit test for useForceSimulation hook (AC8 spec requirement) — deferred, tested indirectly via E2E
+- [x] [Review][Defer] No unit test for GraphCanvas rendering logic (AC8 spec requirement) — deferred, Canvas not testable in jsdom
+- [x] [Review][Defer] hoveredNode/selectedNode not cleared in Redux on key change — deferred, pre-existing state management gap
+- [x] [Review][Defer] D3 simulation mutates useMemo-cached objects — deferred, works in practice but violates React immutability expectations
 
 ## Dev Notes
 

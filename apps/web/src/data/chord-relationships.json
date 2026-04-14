@@ -4,780 +4,4008 @@
       "root": "C",
       "quality": "Major",
       "chords": [
-        { "id": "C", "name": "C", "type": "major", "distance": 0 },
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 1 },
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 1 },
-        { "id": "F", "name": "F", "type": "major", "distance": 1 },
-        { "id": "G", "name": "G", "type": "major", "distance": 1 },
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 1 },
-        { "id": "Bdim", "name": "Bdim", "type": "dim", "distance": 2 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 2 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 2 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 3 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 3 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 4 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 4 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 3 }
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bdim",
+          "name": "Bdim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Gaug",
+          "name": "G+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "C", "target": "G", "weight": 1, "label": "I-V" },
-        { "source": "C", "target": "F", "weight": 1, "label": "I-IV" },
-        { "source": "C", "target": "Am", "weight": 1, "label": "I-vi" },
-        { "source": "C", "target": "Dm", "weight": 1, "label": "I-ii" },
-        { "source": "C", "target": "Em", "weight": 1, "label": "I-iii" },
-        { "source": "G", "target": "C", "weight": 1, "label": "V-I" },
-        { "source": "G", "target": "Am", "weight": 2, "label": "V-vi" },
-        { "source": "F", "target": "G", "weight": 1, "label": "IV-V" },
-        { "source": "Am", "target": "F", "weight": 1, "label": "vi-IV" },
-        { "source": "Am", "target": "Dm", "weight": 2, "label": "vi-ii" },
-        { "source": "Dm", "target": "G", "weight": 1, "label": "ii-V" },
-        { "source": "Em", "target": "Am", "weight": 2, "label": "iii-vi" },
-        { "source": "Bdim", "target": "C", "weight": 2, "label": "vii°-I" },
-        { "source": "G7", "target": "C", "weight": 1, "label": "V7-I" },
-        { "source": "D7", "target": "G", "weight": 2, "label": "V7/V-V" },
-        { "source": "E7", "target": "Am", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "Bb", "target": "F", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "C",
+          "target": "G",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "C",
+          "target": "F",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "C",
+          "target": "Am",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "C",
+          "target": "Dm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "C",
+          "target": "Em",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "G",
+          "target": "C",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "G",
+          "target": "Am",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "F",
+          "target": "G",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Am",
+          "target": "F",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Am",
+          "target": "Dm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Dm",
+          "target": "G",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Em",
+          "target": "Am",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Bdim",
+          "target": "C",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "G7",
+          "target": "C",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "D7",
+          "target": "G",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "E7",
+          "target": "Am",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "Bb",
+          "target": "F",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Gaug",
+          "target": "C",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "Db_major": {
       "root": "Db",
       "quality": "Major",
       "chords": [
-        { "id": "Db", "name": "Db", "type": "major", "distance": 0 },
-        { "id": "Ebm", "name": "Ebm", "type": "minor", "distance": 1 },
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 1 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 1 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 1 },
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 1 },
-        { "id": "Cdim", "name": "Cdim", "type": "dim", "distance": 2 },
-        { "id": "Ab7", "name": "Ab7", "type": "7th", "distance": 2 },
-        { "id": "Eb7", "name": "Eb7", "type": "7th", "distance": 2 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 3 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 3 },
-        { "id": "A", "name": "A", "type": "major", "distance": 4 },
-        { "id": "E", "name": "E", "type": "major", "distance": 4 },
-        { "id": "B", "name": "B", "type": "major", "distance": 3 }
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Ebm",
+          "name": "Ebm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Cdim",
+          "name": "Cdim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "Ab7",
+          "name": "Ab7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Eb7",
+          "name": "Eb7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Abaug",
+          "name": "Ab+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Db", "target": "Ab", "weight": 1, "label": "I-V" },
-        { "source": "Db", "target": "Gb", "weight": 1, "label": "I-IV" },
-        { "source": "Db", "target": "Bbm", "weight": 1, "label": "I-vi" },
-        { "source": "Db", "target": "Ebm", "weight": 1, "label": "I-ii" },
-        { "source": "Db", "target": "Fm", "weight": 1, "label": "I-iii" },
-        { "source": "Ab", "target": "Db", "weight": 1, "label": "V-I" },
-        { "source": "Ab", "target": "Bbm", "weight": 2, "label": "V-vi" },
-        { "source": "Gb", "target": "Ab", "weight": 1, "label": "IV-V" },
-        { "source": "Bbm", "target": "Gb", "weight": 1, "label": "vi-IV" },
-        { "source": "Bbm", "target": "Ebm", "weight": 2, "label": "vi-ii" },
-        { "source": "Ebm", "target": "Ab", "weight": 1, "label": "ii-V" },
-        { "source": "Fm", "target": "Bbm", "weight": 2, "label": "iii-vi" },
-        { "source": "Cdim", "target": "Db", "weight": 2, "label": "vii°-I" },
-        { "source": "Ab7", "target": "Db", "weight": 1, "label": "V7-I" },
-        { "source": "Eb7", "target": "Ab", "weight": 2, "label": "V7/V-V" },
-        { "source": "F7", "target": "Bbm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "B", "target": "Gb", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "Db",
+          "target": "Ab",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "Db",
+          "target": "Gb",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "Db",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "Db",
+          "target": "Ebm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "Db",
+          "target": "Fm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "Ab",
+          "target": "Db",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "Ab",
+          "target": "Bbm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "Gb",
+          "target": "Ab",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Bbm",
+          "target": "Gb",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Bbm",
+          "target": "Ebm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Ebm",
+          "target": "Ab",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Fm",
+          "target": "Bbm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Cdim",
+          "target": "Db",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "Ab7",
+          "target": "Db",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "Eb7",
+          "target": "Ab",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "F7",
+          "target": "Bbm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "B",
+          "target": "Gb",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Abaug",
+          "target": "Db",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "D_major": {
       "root": "D",
       "quality": "Major",
       "chords": [
-        { "id": "D", "name": "D", "type": "major", "distance": 0 },
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 1 },
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 1 },
-        { "id": "G", "name": "G", "type": "major", "distance": 1 },
-        { "id": "A", "name": "A", "type": "major", "distance": 1 },
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 1 },
-        { "id": "C#dim", "name": "C#dim", "type": "dim", "distance": 2 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 2 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 2 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 3 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 3 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 4 },
-        { "id": "F", "name": "F", "type": "major", "distance": 4 },
-        { "id": "C", "name": "C", "type": "major", "distance": 3 }
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "C#dim",
+          "name": "C#dim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Aaug",
+          "name": "A+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "D", "target": "A", "weight": 1, "label": "I-V" },
-        { "source": "D", "target": "G", "weight": 1, "label": "I-IV" },
-        { "source": "D", "target": "Bm", "weight": 1, "label": "I-vi" },
-        { "source": "D", "target": "Em", "weight": 1, "label": "I-ii" },
-        { "source": "D", "target": "F#m", "weight": 1, "label": "I-iii" },
-        { "source": "A", "target": "D", "weight": 1, "label": "V-I" },
-        { "source": "A", "target": "Bm", "weight": 2, "label": "V-vi" },
-        { "source": "G", "target": "A", "weight": 1, "label": "IV-V" },
-        { "source": "Bm", "target": "G", "weight": 1, "label": "vi-IV" },
-        { "source": "Bm", "target": "Em", "weight": 2, "label": "vi-ii" },
-        { "source": "Em", "target": "A", "weight": 1, "label": "ii-V" },
-        { "source": "F#m", "target": "Bm", "weight": 2, "label": "iii-vi" },
-        { "source": "C#dim", "target": "D", "weight": 2, "label": "vii°-I" },
-        { "source": "A7", "target": "D", "weight": 1, "label": "V7-I" },
-        { "source": "E7", "target": "A", "weight": 2, "label": "V7/V-V" },
-        { "source": "F#7", "target": "Bm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "C", "target": "G", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "D",
+          "target": "A",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "D",
+          "target": "G",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "D",
+          "target": "Bm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "D",
+          "target": "Em",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "D",
+          "target": "F#m",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "A",
+          "target": "D",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "A",
+          "target": "Bm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "G",
+          "target": "A",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Bm",
+          "target": "G",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Bm",
+          "target": "Em",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Em",
+          "target": "A",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "F#m",
+          "target": "Bm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "C#dim",
+          "target": "D",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "A7",
+          "target": "D",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "E7",
+          "target": "A",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "F#7",
+          "target": "Bm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "C",
+          "target": "G",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Aaug",
+          "target": "D",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "Eb_major": {
       "root": "Eb",
       "quality": "Major",
       "chords": [
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 0 },
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 1 },
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 1 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 1 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 1 },
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 1 },
-        { "id": "Ddim", "name": "Ddim", "type": "dim", "distance": 2 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 2 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 2 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 3 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 3 },
-        { "id": "B", "name": "B", "type": "major", "distance": 4 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 4 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 3 }
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Ddim",
+          "name": "Ddim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Bbaug",
+          "name": "Bb+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Eb", "target": "Bb", "weight": 1, "label": "I-V" },
-        { "source": "Eb", "target": "Ab", "weight": 1, "label": "I-IV" },
-        { "source": "Eb", "target": "Cm", "weight": 1, "label": "I-vi" },
-        { "source": "Eb", "target": "Fm", "weight": 1, "label": "I-ii" },
-        { "source": "Eb", "target": "Gm", "weight": 1, "label": "I-iii" },
-        { "source": "Bb", "target": "Eb", "weight": 1, "label": "V-I" },
-        { "source": "Bb", "target": "Cm", "weight": 2, "label": "V-vi" },
-        { "source": "Ab", "target": "Bb", "weight": 1, "label": "IV-V" },
-        { "source": "Cm", "target": "Ab", "weight": 1, "label": "vi-IV" },
-        { "source": "Cm", "target": "Fm", "weight": 2, "label": "vi-ii" },
-        { "source": "Fm", "target": "Bb", "weight": 1, "label": "ii-V" },
-        { "source": "Gm", "target": "Cm", "weight": 2, "label": "iii-vi" },
-        { "source": "Ddim", "target": "Eb", "weight": 2, "label": "vii°-I" },
-        { "source": "Bb7", "target": "Eb", "weight": 1, "label": "V7-I" },
-        { "source": "F7", "target": "Bb", "weight": 2, "label": "V7/V-V" },
-        { "source": "G7", "target": "Cm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "Db", "target": "Ab", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "Eb",
+          "target": "Bb",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "Eb",
+          "target": "Ab",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "Eb",
+          "target": "Cm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "Eb",
+          "target": "Fm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "Eb",
+          "target": "Gm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "Bb",
+          "target": "Eb",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "Bb",
+          "target": "Cm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "Ab",
+          "target": "Bb",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Cm",
+          "target": "Ab",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Cm",
+          "target": "Fm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Fm",
+          "target": "Bb",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Gm",
+          "target": "Cm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Ddim",
+          "target": "Eb",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "Bb7",
+          "target": "Eb",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "F7",
+          "target": "Bb",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "G7",
+          "target": "Cm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "Db",
+          "target": "Ab",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Bbaug",
+          "target": "Eb",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "E_major": {
       "root": "E",
       "quality": "Major",
       "chords": [
-        { "id": "E", "name": "E", "type": "major", "distance": 0 },
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 1 },
-        { "id": "G#m", "name": "G#m", "type": "minor", "distance": 1 },
-        { "id": "A", "name": "A", "type": "major", "distance": 1 },
-        { "id": "B", "name": "B", "type": "major", "distance": 1 },
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 1 },
-        { "id": "D#dim", "name": "D#dim", "type": "dim", "distance": 2 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 2 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 2 },
-        { "id": "G#7", "name": "G#7", "type": "7th", "distance": 3 },
-        { "id": "C#7", "name": "C#7", "type": "7th", "distance": 3 },
-        { "id": "C", "name": "C", "type": "major", "distance": 4 },
-        { "id": "G", "name": "G", "type": "major", "distance": 4 },
-        { "id": "D", "name": "D", "type": "major", "distance": 3 }
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "G#m",
+          "name": "G#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "D#dim",
+          "name": "D#dim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "G#7",
+          "name": "G#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "C#7",
+          "name": "C#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Baug",
+          "name": "B+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "E", "target": "B", "weight": 1, "label": "I-V" },
-        { "source": "E", "target": "A", "weight": 1, "label": "I-IV" },
-        { "source": "E", "target": "C#m", "weight": 1, "label": "I-vi" },
-        { "source": "E", "target": "F#m", "weight": 1, "label": "I-ii" },
-        { "source": "E", "target": "G#m", "weight": 1, "label": "I-iii" },
-        { "source": "B", "target": "E", "weight": 1, "label": "V-I" },
-        { "source": "B", "target": "C#m", "weight": 2, "label": "V-vi" },
-        { "source": "A", "target": "B", "weight": 1, "label": "IV-V" },
-        { "source": "C#m", "target": "A", "weight": 1, "label": "vi-IV" },
-        { "source": "C#m", "target": "F#m", "weight": 2, "label": "vi-ii" },
-        { "source": "F#m", "target": "B", "weight": 1, "label": "ii-V" },
-        { "source": "G#m", "target": "C#m", "weight": 2, "label": "iii-vi" },
-        { "source": "D#dim", "target": "E", "weight": 2, "label": "vii°-I" },
-        { "source": "B7", "target": "E", "weight": 1, "label": "V7-I" },
-        { "source": "F#7", "target": "B", "weight": 2, "label": "V7/V-V" },
-        { "source": "G#7", "target": "C#m", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "D", "target": "A", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "E",
+          "target": "B",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "E",
+          "target": "A",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "E",
+          "target": "C#m",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "E",
+          "target": "F#m",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "E",
+          "target": "G#m",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "B",
+          "target": "E",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "B",
+          "target": "C#m",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "A",
+          "target": "B",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "C#m",
+          "target": "A",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "C#m",
+          "target": "F#m",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "F#m",
+          "target": "B",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "G#m",
+          "target": "C#m",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "D#dim",
+          "target": "E",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "B7",
+          "target": "E",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "F#7",
+          "target": "B",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "G#7",
+          "target": "C#m",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "D",
+          "target": "A",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Baug",
+          "target": "E",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "F_major": {
       "root": "F",
       "quality": "Major",
       "chords": [
-        { "id": "F", "name": "F", "type": "major", "distance": 0 },
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 1 },
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 1 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 1 },
-        { "id": "C", "name": "C", "type": "major", "distance": 1 },
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 1 },
-        { "id": "Edim", "name": "Edim", "type": "dim", "distance": 2 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 2 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 2 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 3 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 3 },
-        { "id": "E", "name": "E", "type": "major", "distance": 4 },
-        { "id": "B", "name": "B", "type": "major", "distance": 4 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 3 }
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Edim",
+          "name": "Edim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Caug",
+          "name": "C+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "F", "target": "C", "weight": 1, "label": "I-V" },
-        { "source": "F", "target": "Bb", "weight": 1, "label": "I-IV" },
-        { "source": "F", "target": "Dm", "weight": 1, "label": "I-vi" },
-        { "source": "F", "target": "Gm", "weight": 1, "label": "I-ii" },
-        { "source": "F", "target": "Am", "weight": 1, "label": "I-iii" },
-        { "source": "C", "target": "F", "weight": 1, "label": "V-I" },
-        { "source": "C", "target": "Dm", "weight": 2, "label": "V-vi" },
-        { "source": "Bb", "target": "C", "weight": 1, "label": "IV-V" },
-        { "source": "Dm", "target": "Bb", "weight": 1, "label": "vi-IV" },
-        { "source": "Dm", "target": "Gm", "weight": 2, "label": "vi-ii" },
-        { "source": "Gm", "target": "C", "weight": 1, "label": "ii-V" },
-        { "source": "Am", "target": "Dm", "weight": 2, "label": "iii-vi" },
-        { "source": "Edim", "target": "F", "weight": 2, "label": "vii°-I" },
-        { "source": "C7", "target": "F", "weight": 1, "label": "V7-I" },
-        { "source": "G7", "target": "C", "weight": 2, "label": "V7/V-V" },
-        { "source": "A7", "target": "Dm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "Eb", "target": "Bb", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "F",
+          "target": "C",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "F",
+          "target": "Bb",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "F",
+          "target": "Dm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "F",
+          "target": "Gm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "F",
+          "target": "Am",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "C",
+          "target": "F",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "C",
+          "target": "Dm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "Bb",
+          "target": "C",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Dm",
+          "target": "Bb",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Dm",
+          "target": "Gm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Gm",
+          "target": "C",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Am",
+          "target": "Dm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Edim",
+          "target": "F",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "C7",
+          "target": "F",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "G7",
+          "target": "C",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "A7",
+          "target": "Dm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "Eb",
+          "target": "Bb",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Caug",
+          "target": "F",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "Gb_major": {
       "root": "Gb",
       "quality": "Major",
       "chords": [
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 0 },
-        { "id": "Abm", "name": "Abm", "type": "minor", "distance": 1 },
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 1 },
-        { "id": "B", "name": "B", "type": "major", "distance": 1 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 1 },
-        { "id": "Ebm", "name": "Ebm", "type": "minor", "distance": 1 },
-        { "id": "Fdim", "name": "Fdim", "type": "dim", "distance": 2 },
-        { "id": "Db7", "name": "Db7", "type": "7th", "distance": 2 },
-        { "id": "Ab7", "name": "Ab7", "type": "7th", "distance": 2 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 3 },
-        { "id": "Eb7", "name": "Eb7", "type": "7th", "distance": 3 },
-        { "id": "D", "name": "D", "type": "major", "distance": 4 },
-        { "id": "A", "name": "A", "type": "major", "distance": 4 },
-        { "id": "E", "name": "E", "type": "major", "distance": 3 }
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Abm",
+          "name": "Abm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Ebm",
+          "name": "Ebm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Fdim",
+          "name": "Fdim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "Db7",
+          "name": "Db7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Ab7",
+          "name": "Ab7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Eb7",
+          "name": "Eb7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Dbaug",
+          "name": "Db+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Gb", "target": "Db", "weight": 1, "label": "I-V" },
-        { "source": "Gb", "target": "B", "weight": 1, "label": "I-IV" },
-        { "source": "Gb", "target": "Ebm", "weight": 1, "label": "I-vi" },
-        { "source": "Gb", "target": "Abm", "weight": 1, "label": "I-ii" },
-        { "source": "Gb", "target": "Bbm", "weight": 1, "label": "I-iii" },
-        { "source": "Db", "target": "Gb", "weight": 1, "label": "V-I" },
-        { "source": "Db", "target": "Ebm", "weight": 2, "label": "V-vi" },
-        { "source": "B", "target": "Db", "weight": 1, "label": "IV-V" },
-        { "source": "Ebm", "target": "B", "weight": 1, "label": "vi-IV" },
-        { "source": "Ebm", "target": "Abm", "weight": 2, "label": "vi-ii" },
-        { "source": "Abm", "target": "Db", "weight": 1, "label": "ii-V" },
-        { "source": "Bbm", "target": "Ebm", "weight": 2, "label": "iii-vi" },
-        { "source": "Fdim", "target": "Gb", "weight": 2, "label": "vii°-I" },
-        { "source": "Db7", "target": "Gb", "weight": 1, "label": "V7-I" },
-        { "source": "Ab7", "target": "Db", "weight": 2, "label": "V7/V-V" },
-        { "source": "Bb7", "target": "Ebm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "E", "target": "B", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "Gb",
+          "target": "Db",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "Gb",
+          "target": "B",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "Gb",
+          "target": "Ebm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "Gb",
+          "target": "Abm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "Gb",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "Db",
+          "target": "Gb",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "Db",
+          "target": "Ebm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "B",
+          "target": "Db",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Ebm",
+          "target": "B",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Ebm",
+          "target": "Abm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Abm",
+          "target": "Db",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Bbm",
+          "target": "Ebm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Fdim",
+          "target": "Gb",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "Db7",
+          "target": "Gb",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "Ab7",
+          "target": "Db",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "Bb7",
+          "target": "Ebm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "E",
+          "target": "B",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Dbaug",
+          "target": "Gb",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "G_major": {
       "root": "G",
       "quality": "Major",
       "chords": [
-        { "id": "G", "name": "G", "type": "major", "distance": 0 },
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 1 },
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 1 },
-        { "id": "C", "name": "C", "type": "major", "distance": 1 },
-        { "id": "D", "name": "D", "type": "major", "distance": 1 },
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 1 },
-        { "id": "F#dim", "name": "F#dim", "type": "dim", "distance": 2 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 2 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 2 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 3 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 3 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 4 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 4 },
-        { "id": "F", "name": "F", "type": "major", "distance": 3 }
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "F#dim",
+          "name": "F#dim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Daug",
+          "name": "D+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "G", "target": "D", "weight": 1, "label": "I-V" },
-        { "source": "G", "target": "C", "weight": 1, "label": "I-IV" },
-        { "source": "G", "target": "Em", "weight": 1, "label": "I-vi" },
-        { "source": "G", "target": "Am", "weight": 1, "label": "I-ii" },
-        { "source": "G", "target": "Bm", "weight": 1, "label": "I-iii" },
-        { "source": "D", "target": "G", "weight": 1, "label": "V-I" },
-        { "source": "D", "target": "Em", "weight": 2, "label": "V-vi" },
-        { "source": "C", "target": "D", "weight": 1, "label": "IV-V" },
-        { "source": "Em", "target": "C", "weight": 1, "label": "vi-IV" },
-        { "source": "Em", "target": "Am", "weight": 2, "label": "vi-ii" },
-        { "source": "Am", "target": "D", "weight": 1, "label": "ii-V" },
-        { "source": "Bm", "target": "Em", "weight": 2, "label": "iii-vi" },
-        { "source": "F#dim", "target": "G", "weight": 2, "label": "vii°-I" },
-        { "source": "D7", "target": "G", "weight": 1, "label": "V7-I" },
-        { "source": "A7", "target": "D", "weight": 2, "label": "V7/V-V" },
-        { "source": "B7", "target": "Em", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "F", "target": "C", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "G",
+          "target": "D",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "G",
+          "target": "C",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "G",
+          "target": "Em",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "G",
+          "target": "Am",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "G",
+          "target": "Bm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "D",
+          "target": "G",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "D",
+          "target": "Em",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "C",
+          "target": "D",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Em",
+          "target": "C",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Em",
+          "target": "Am",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Am",
+          "target": "D",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Bm",
+          "target": "Em",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "F#dim",
+          "target": "G",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "D7",
+          "target": "G",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "A7",
+          "target": "D",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "B7",
+          "target": "Em",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "F",
+          "target": "C",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Daug",
+          "target": "G",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "Ab_major": {
       "root": "Ab",
       "quality": "Major",
       "chords": [
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 0 },
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 1 },
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 1 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 1 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 1 },
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 1 },
-        { "id": "Gdim", "name": "Gdim", "type": "dim", "distance": 2 },
-        { "id": "Eb7", "name": "Eb7", "type": "7th", "distance": 2 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 2 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 3 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 3 },
-        { "id": "E", "name": "E", "type": "major", "distance": 4 },
-        { "id": "B", "name": "B", "type": "major", "distance": 4 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 3 }
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Gdim",
+          "name": "Gdim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "Eb7",
+          "name": "Eb7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Ebaug",
+          "name": "Eb+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Ab", "target": "Eb", "weight": 1, "label": "I-V" },
-        { "source": "Ab", "target": "Db", "weight": 1, "label": "I-IV" },
-        { "source": "Ab", "target": "Fm", "weight": 1, "label": "I-vi" },
-        { "source": "Ab", "target": "Bbm", "weight": 1, "label": "I-ii" },
-        { "source": "Ab", "target": "Cm", "weight": 1, "label": "I-iii" },
-        { "source": "Eb", "target": "Ab", "weight": 1, "label": "V-I" },
-        { "source": "Eb", "target": "Fm", "weight": 2, "label": "V-vi" },
-        { "source": "Db", "target": "Eb", "weight": 1, "label": "IV-V" },
-        { "source": "Fm", "target": "Db", "weight": 1, "label": "vi-IV" },
-        { "source": "Fm", "target": "Bbm", "weight": 2, "label": "vi-ii" },
-        { "source": "Bbm", "target": "Eb", "weight": 1, "label": "ii-V" },
-        { "source": "Cm", "target": "Fm", "weight": 2, "label": "iii-vi" },
-        { "source": "Gdim", "target": "Ab", "weight": 2, "label": "vii°-I" },
-        { "source": "Eb7", "target": "Ab", "weight": 1, "label": "V7-I" },
-        { "source": "Bb7", "target": "Eb", "weight": 2, "label": "V7/V-V" },
-        { "source": "C7", "target": "Fm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "Gb", "target": "Db", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "Ab",
+          "target": "Eb",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "Ab",
+          "target": "Db",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "Ab",
+          "target": "Fm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "Ab",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "Ab",
+          "target": "Cm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "Eb",
+          "target": "Ab",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "Eb",
+          "target": "Fm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "Db",
+          "target": "Eb",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Fm",
+          "target": "Db",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Fm",
+          "target": "Bbm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Bbm",
+          "target": "Eb",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Cm",
+          "target": "Fm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Gdim",
+          "target": "Ab",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "Eb7",
+          "target": "Ab",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "Bb7",
+          "target": "Eb",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "C7",
+          "target": "Fm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "Gb",
+          "target": "Db",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Ebaug",
+          "target": "Ab",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "A_major": {
       "root": "A",
       "quality": "Major",
       "chords": [
-        { "id": "A", "name": "A", "type": "major", "distance": 0 },
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 1 },
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 1 },
-        { "id": "D", "name": "D", "type": "major", "distance": 1 },
-        { "id": "E", "name": "E", "type": "major", "distance": 1 },
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 1 },
-        { "id": "G#dim", "name": "G#dim", "type": "dim", "distance": 2 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 2 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 2 },
-        { "id": "C#7", "name": "C#7", "type": "7th", "distance": 3 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 3 },
-        { "id": "F", "name": "F", "type": "major", "distance": 4 },
-        { "id": "C", "name": "C", "type": "major", "distance": 4 },
-        { "id": "G", "name": "G", "type": "major", "distance": 3 }
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "G#dim",
+          "name": "G#dim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C#7",
+          "name": "C#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Eaug",
+          "name": "E+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "A", "target": "E", "weight": 1, "label": "I-V" },
-        { "source": "A", "target": "D", "weight": 1, "label": "I-IV" },
-        { "source": "A", "target": "F#m", "weight": 1, "label": "I-vi" },
-        { "source": "A", "target": "Bm", "weight": 1, "label": "I-ii" },
-        { "source": "A", "target": "C#m", "weight": 1, "label": "I-iii" },
-        { "source": "E", "target": "A", "weight": 1, "label": "V-I" },
-        { "source": "E", "target": "F#m", "weight": 2, "label": "V-vi" },
-        { "source": "D", "target": "E", "weight": 1, "label": "IV-V" },
-        { "source": "F#m", "target": "D", "weight": 1, "label": "vi-IV" },
-        { "source": "F#m", "target": "Bm", "weight": 2, "label": "vi-ii" },
-        { "source": "Bm", "target": "E", "weight": 1, "label": "ii-V" },
-        { "source": "C#m", "target": "F#m", "weight": 2, "label": "iii-vi" },
-        { "source": "G#dim", "target": "A", "weight": 2, "label": "vii°-I" },
-        { "source": "E7", "target": "A", "weight": 1, "label": "V7-I" },
-        { "source": "B7", "target": "E", "weight": 2, "label": "V7/V-V" },
-        { "source": "C#7", "target": "F#m", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "G", "target": "D", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "A",
+          "target": "E",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "A",
+          "target": "D",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "A",
+          "target": "F#m",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "A",
+          "target": "Bm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "A",
+          "target": "C#m",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "E",
+          "target": "A",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "E",
+          "target": "F#m",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "D",
+          "target": "E",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "F#m",
+          "target": "D",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "F#m",
+          "target": "Bm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Bm",
+          "target": "E",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "C#m",
+          "target": "F#m",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "G#dim",
+          "target": "A",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "E7",
+          "target": "A",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "B7",
+          "target": "E",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "C#7",
+          "target": "F#m",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "G",
+          "target": "D",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Eaug",
+          "target": "A",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "Bb_major": {
       "root": "Bb",
       "quality": "Major",
       "chords": [
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 0 },
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 1 },
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 1 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 1 },
-        { "id": "F", "name": "F", "type": "major", "distance": 1 },
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 1 },
-        { "id": "Adim", "name": "Adim", "type": "dim", "distance": 2 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 2 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 2 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 3 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 3 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 4 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 4 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 3 }
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Adim",
+          "name": "Adim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "Faug",
+          "name": "F+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Bb", "target": "F", "weight": 1, "label": "I-V" },
-        { "source": "Bb", "target": "Eb", "weight": 1, "label": "I-IV" },
-        { "source": "Bb", "target": "Gm", "weight": 1, "label": "I-vi" },
-        { "source": "Bb", "target": "Cm", "weight": 1, "label": "I-ii" },
-        { "source": "Bb", "target": "Dm", "weight": 1, "label": "I-iii" },
-        { "source": "F", "target": "Bb", "weight": 1, "label": "V-I" },
-        { "source": "F", "target": "Gm", "weight": 2, "label": "V-vi" },
-        { "source": "Eb", "target": "F", "weight": 1, "label": "IV-V" },
-        { "source": "Gm", "target": "Eb", "weight": 1, "label": "vi-IV" },
-        { "source": "Gm", "target": "Cm", "weight": 2, "label": "vi-ii" },
-        { "source": "Cm", "target": "F", "weight": 1, "label": "ii-V" },
-        { "source": "Dm", "target": "Gm", "weight": 2, "label": "iii-vi" },
-        { "source": "Adim", "target": "Bb", "weight": 2, "label": "vii°-I" },
-        { "source": "F7", "target": "Bb", "weight": 1, "label": "V7-I" },
-        { "source": "C7", "target": "F", "weight": 2, "label": "V7/V-V" },
-        { "source": "D7", "target": "Gm", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "Ab", "target": "Eb", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "Bb",
+          "target": "F",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "Bb",
+          "target": "Eb",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "Bb",
+          "target": "Gm",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "Bb",
+          "target": "Cm",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "Bb",
+          "target": "Dm",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "F",
+          "target": "Bb",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "F",
+          "target": "Gm",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "Eb",
+          "target": "F",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "Gm",
+          "target": "Eb",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "Gm",
+          "target": "Cm",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "Cm",
+          "target": "F",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "Dm",
+          "target": "Gm",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "Adim",
+          "target": "Bb",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "F7",
+          "target": "Bb",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "C7",
+          "target": "F",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "D7",
+          "target": "Gm",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "Ab",
+          "target": "Eb",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "Faug",
+          "target": "Bb",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "B_major": {
       "root": "B",
       "quality": "Major",
       "chords": [
-        { "id": "B", "name": "B", "type": "major", "distance": 0 },
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 1 },
-        { "id": "D#m", "name": "D#m", "type": "minor", "distance": 1 },
-        { "id": "E", "name": "E", "type": "major", "distance": 1 },
-        { "id": "F#", "name": "F#", "type": "major", "distance": 1 },
-        { "id": "G#m", "name": "G#m", "type": "minor", "distance": 1 },
-        { "id": "A#dim", "name": "A#dim", "type": "dim", "distance": 2 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 2 },
-        { "id": "C#7", "name": "C#7", "type": "7th", "distance": 2 },
-        { "id": "D#7", "name": "D#7", "type": "7th", "distance": 3 },
-        { "id": "G#7", "name": "G#7", "type": "7th", "distance": 3 },
-        { "id": "G", "name": "G", "type": "major", "distance": 4 },
-        { "id": "D", "name": "D", "type": "major", "distance": 4 },
-        { "id": "A", "name": "A", "type": "major", "distance": 3 }
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 0
+        },
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "D#m",
+          "name": "D#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F#",
+          "name": "F#",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "G#m",
+          "name": "G#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "A#dim",
+          "name": "A#dim",
+          "type": "dim",
+          "distance": 2
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C#7",
+          "name": "C#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "D#7",
+          "name": "D#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "G#7",
+          "name": "G#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 4
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 3
+        },
+        {
+          "id": "F#aug",
+          "name": "F#+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "B", "target": "F#", "weight": 1, "label": "I-V" },
-        { "source": "B", "target": "E", "weight": 1, "label": "I-IV" },
-        { "source": "B", "target": "G#m", "weight": 1, "label": "I-vi" },
-        { "source": "B", "target": "C#m", "weight": 1, "label": "I-ii" },
-        { "source": "B", "target": "D#m", "weight": 1, "label": "I-iii" },
-        { "source": "F#", "target": "B", "weight": 1, "label": "V-I" },
-        { "source": "F#", "target": "G#m", "weight": 2, "label": "V-vi" },
-        { "source": "E", "target": "F#", "weight": 1, "label": "IV-V" },
-        { "source": "G#m", "target": "E", "weight": 1, "label": "vi-IV" },
-        { "source": "G#m", "target": "C#m", "weight": 2, "label": "vi-ii" },
-        { "source": "C#m", "target": "F#", "weight": 1, "label": "ii-V" },
-        { "source": "D#m", "target": "G#m", "weight": 2, "label": "iii-vi" },
-        { "source": "A#dim", "target": "B", "weight": 2, "label": "vii°-I" },
-        { "source": "F#7", "target": "B", "weight": 1, "label": "V7-I" },
-        { "source": "C#7", "target": "F#", "weight": 2, "label": "V7/V-V" },
-        { "source": "D#7", "target": "G#m", "weight": 3, "label": "V7/vi-vi" },
-        { "source": "A", "target": "E", "weight": 3, "label": "bVII-IV" }
+        {
+          "source": "B",
+          "target": "F#",
+          "weight": 1,
+          "label": "I-V"
+        },
+        {
+          "source": "B",
+          "target": "E",
+          "weight": 1,
+          "label": "I-IV"
+        },
+        {
+          "source": "B",
+          "target": "G#m",
+          "weight": 1,
+          "label": "I-vi"
+        },
+        {
+          "source": "B",
+          "target": "C#m",
+          "weight": 1,
+          "label": "I-ii"
+        },
+        {
+          "source": "B",
+          "target": "D#m",
+          "weight": 1,
+          "label": "I-iii"
+        },
+        {
+          "source": "F#",
+          "target": "B",
+          "weight": 1,
+          "label": "V-I"
+        },
+        {
+          "source": "F#",
+          "target": "G#m",
+          "weight": 2,
+          "label": "V-vi"
+        },
+        {
+          "source": "E",
+          "target": "F#",
+          "weight": 1,
+          "label": "IV-V"
+        },
+        {
+          "source": "G#m",
+          "target": "E",
+          "weight": 1,
+          "label": "vi-IV"
+        },
+        {
+          "source": "G#m",
+          "target": "C#m",
+          "weight": 2,
+          "label": "vi-ii"
+        },
+        {
+          "source": "C#m",
+          "target": "F#",
+          "weight": 1,
+          "label": "ii-V"
+        },
+        {
+          "source": "D#m",
+          "target": "G#m",
+          "weight": 2,
+          "label": "iii-vi"
+        },
+        {
+          "source": "A#dim",
+          "target": "B",
+          "weight": 2,
+          "label": "vii°-I"
+        },
+        {
+          "source": "F#7",
+          "target": "B",
+          "weight": 1,
+          "label": "V7-I"
+        },
+        {
+          "source": "C#7",
+          "target": "F#",
+          "weight": 2,
+          "label": "V7/V-V"
+        },
+        {
+          "source": "D#7",
+          "target": "G#m",
+          "weight": 3,
+          "label": "V7/vi-vi"
+        },
+        {
+          "source": "A",
+          "target": "E",
+          "weight": 3,
+          "label": "bVII-IV"
+        },
+        {
+          "source": "F#aug",
+          "target": "B",
+          "weight": 4,
+          "label": "V+-I"
+        }
       ]
     },
     "A_minor": {
       "root": "Am",
       "quality": "Minor",
       "chords": [
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 0 },
-        { "id": "Bdim", "name": "Bdim", "type": "dim", "distance": 1 },
-        { "id": "C", "name": "C", "type": "major", "distance": 1 },
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 1 },
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 1 },
-        { "id": "F", "name": "F", "type": "major", "distance": 1 },
-        { "id": "G", "name": "G", "type": "major", "distance": 1 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 2 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 3 }
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Bdim",
+          "name": "Bdim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Eaug",
+          "name": "E+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Am", "target": "Dm", "weight": 1, "label": "i-iv" },
-        { "source": "Am", "target": "Em", "weight": 1, "label": "i-v" },
-        { "source": "Am", "target": "F", "weight": 1, "label": "i-VI" },
-        { "source": "Am", "target": "G", "weight": 1, "label": "i-VII" },
-        { "source": "Am", "target": "C", "weight": 1, "label": "i-III" },
-        { "source": "Dm", "target": "Am", "weight": 1, "label": "iv-i" },
-        { "source": "E7", "target": "Am", "weight": 1, "label": "V7-i" },
-        { "source": "G", "target": "Am", "weight": 2, "label": "VII-i" },
-        { "source": "F", "target": "G", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Am",
+          "target": "Dm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Am",
+          "target": "Em",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Am",
+          "target": "F",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Am",
+          "target": "G",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Am",
+          "target": "C",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Dm",
+          "target": "Am",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "E7",
+          "target": "Am",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "G",
+          "target": "Am",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "F",
+          "target": "G",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Eaug",
+          "target": "Am",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "Bb_minor": {
       "root": "Bbm",
       "quality": "Minor",
       "chords": [
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 0 },
-        { "id": "Cdim", "name": "Cdim", "type": "dim", "distance": 1 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 1 },
-        { "id": "Ebm", "name": "Ebm", "type": "minor", "distance": 1 },
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 1 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 1 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 1 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 2 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 3 }
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Cdim",
+          "name": "Cdim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Ebm",
+          "name": "Ebm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Faug",
+          "name": "F+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Bbm", "target": "Ebm", "weight": 1, "label": "i-iv" },
-        { "source": "Bbm", "target": "Fm", "weight": 1, "label": "i-v" },
-        { "source": "Bbm", "target": "Gb", "weight": 1, "label": "i-VI" },
-        { "source": "Bbm", "target": "Ab", "weight": 1, "label": "i-VII" },
-        { "source": "Bbm", "target": "Db", "weight": 1, "label": "i-III" },
-        { "source": "Ebm", "target": "Bbm", "weight": 1, "label": "iv-i" },
-        { "source": "F7", "target": "Bbm", "weight": 1, "label": "V7-i" },
-        { "source": "Ab", "target": "Bbm", "weight": 2, "label": "VII-i" },
-        { "source": "Gb", "target": "Ab", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Bbm",
+          "target": "Ebm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Bbm",
+          "target": "Fm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Bbm",
+          "target": "Gb",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Bbm",
+          "target": "Ab",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Bbm",
+          "target": "Db",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Ebm",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "F7",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "Ab",
+          "target": "Bbm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "Gb",
+          "target": "Ab",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Faug",
+          "target": "Bbm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "B_minor": {
       "root": "Bm",
       "quality": "Minor",
       "chords": [
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 0 },
-        { "id": "C#dim", "name": "C#dim", "type": "dim", "distance": 1 },
-        { "id": "D", "name": "D", "type": "major", "distance": 1 },
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 1 },
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 1 },
-        { "id": "G", "name": "G", "type": "major", "distance": 1 },
-        { "id": "A", "name": "A", "type": "major", "distance": 1 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 2 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 3 }
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "C#dim",
+          "name": "C#dim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "F#aug",
+          "name": "F#+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Bm", "target": "Em", "weight": 1, "label": "i-iv" },
-        { "source": "Bm", "target": "F#m", "weight": 1, "label": "i-v" },
-        { "source": "Bm", "target": "G", "weight": 1, "label": "i-VI" },
-        { "source": "Bm", "target": "A", "weight": 1, "label": "i-VII" },
-        { "source": "Bm", "target": "D", "weight": 1, "label": "i-III" },
-        { "source": "Em", "target": "Bm", "weight": 1, "label": "iv-i" },
-        { "source": "F#7", "target": "Bm", "weight": 1, "label": "V7-i" },
-        { "source": "A", "target": "Bm", "weight": 2, "label": "VII-i" },
-        { "source": "G", "target": "A", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Bm",
+          "target": "Em",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Bm",
+          "target": "F#m",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Bm",
+          "target": "G",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Bm",
+          "target": "A",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Bm",
+          "target": "D",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Em",
+          "target": "Bm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "F#7",
+          "target": "Bm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "A",
+          "target": "Bm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "G",
+          "target": "A",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "F#aug",
+          "target": "Bm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "C_minor": {
       "root": "Cm",
       "quality": "Minor",
       "chords": [
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 0 },
-        { "id": "Ddim", "name": "Ddim", "type": "dim", "distance": 1 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 1 },
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 1 },
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 1 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 1 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 1 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 2 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 3 }
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Ddim",
+          "name": "Ddim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Gaug",
+          "name": "G+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Cm", "target": "Fm", "weight": 1, "label": "i-iv" },
-        { "source": "Cm", "target": "Gm", "weight": 1, "label": "i-v" },
-        { "source": "Cm", "target": "Ab", "weight": 1, "label": "i-VI" },
-        { "source": "Cm", "target": "Bb", "weight": 1, "label": "i-VII" },
-        { "source": "Cm", "target": "Eb", "weight": 1, "label": "i-III" },
-        { "source": "Fm", "target": "Cm", "weight": 1, "label": "iv-i" },
-        { "source": "G7", "target": "Cm", "weight": 1, "label": "V7-i" },
-        { "source": "Bb", "target": "Cm", "weight": 2, "label": "VII-i" },
-        { "source": "Ab", "target": "Bb", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Cm",
+          "target": "Fm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Cm",
+          "target": "Gm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Cm",
+          "target": "Ab",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Cm",
+          "target": "Bb",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Cm",
+          "target": "Eb",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Fm",
+          "target": "Cm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "G7",
+          "target": "Cm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "Bb",
+          "target": "Cm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "Ab",
+          "target": "Bb",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Gaug",
+          "target": "Cm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "C#_minor": {
       "root": "C#m",
       "quality": "Minor",
       "chords": [
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 0 },
-        { "id": "D#dim", "name": "D#dim", "type": "dim", "distance": 1 },
-        { "id": "E", "name": "E", "type": "major", "distance": 1 },
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 1 },
-        { "id": "G#m", "name": "G#m", "type": "minor", "distance": 1 },
-        { "id": "A", "name": "A", "type": "major", "distance": 1 },
-        { "id": "B", "name": "B", "type": "major", "distance": 1 },
-        { "id": "G#7", "name": "G#7", "type": "7th", "distance": 2 },
-        { "id": "C#7", "name": "C#7", "type": "7th", "distance": 3 }
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "D#dim",
+          "name": "D#dim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "G#m",
+          "name": "G#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "G#7",
+          "name": "G#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "C#7",
+          "name": "C#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "G#aug",
+          "name": "G#+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "C#m", "target": "F#m", "weight": 1, "label": "i-iv" },
-        { "source": "C#m", "target": "G#m", "weight": 1, "label": "i-v" },
-        { "source": "C#m", "target": "A", "weight": 1, "label": "i-VI" },
-        { "source": "C#m", "target": "B", "weight": 1, "label": "i-VII" },
-        { "source": "C#m", "target": "E", "weight": 1, "label": "i-III" },
-        { "source": "F#m", "target": "C#m", "weight": 1, "label": "iv-i" },
-        { "source": "G#7", "target": "C#m", "weight": 1, "label": "V7-i" },
-        { "source": "B", "target": "C#m", "weight": 2, "label": "VII-i" },
-        { "source": "A", "target": "B", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "C#m",
+          "target": "F#m",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "C#m",
+          "target": "G#m",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "C#m",
+          "target": "A",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "C#m",
+          "target": "B",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "C#m",
+          "target": "E",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "F#m",
+          "target": "C#m",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "G#7",
+          "target": "C#m",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "B",
+          "target": "C#m",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "A",
+          "target": "B",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "G#aug",
+          "target": "C#m",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "D_minor": {
       "root": "Dm",
       "quality": "Minor",
       "chords": [
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 0 },
-        { "id": "Edim", "name": "Edim", "type": "dim", "distance": 1 },
-        { "id": "F", "name": "F", "type": "major", "distance": 1 },
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 1 },
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 1 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 1 },
-        { "id": "C", "name": "C", "type": "major", "distance": 1 },
-        { "id": "A7", "name": "A7", "type": "7th", "distance": 2 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 3 }
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Edim",
+          "name": "Edim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "A7",
+          "name": "A7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Aaug",
+          "name": "A+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Dm", "target": "Gm", "weight": 1, "label": "i-iv" },
-        { "source": "Dm", "target": "Am", "weight": 1, "label": "i-v" },
-        { "source": "Dm", "target": "Bb", "weight": 1, "label": "i-VI" },
-        { "source": "Dm", "target": "C", "weight": 1, "label": "i-VII" },
-        { "source": "Dm", "target": "F", "weight": 1, "label": "i-III" },
-        { "source": "Gm", "target": "Dm", "weight": 1, "label": "iv-i" },
-        { "source": "A7", "target": "Dm", "weight": 1, "label": "V7-i" },
-        { "source": "C", "target": "Dm", "weight": 2, "label": "VII-i" },
-        { "source": "Bb", "target": "C", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Dm",
+          "target": "Gm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Dm",
+          "target": "Am",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Dm",
+          "target": "Bb",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Dm",
+          "target": "C",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Dm",
+          "target": "F",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Gm",
+          "target": "Dm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "A7",
+          "target": "Dm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "C",
+          "target": "Dm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "Bb",
+          "target": "C",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Aaug",
+          "target": "Dm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "Eb_minor": {
       "root": "Ebm",
       "quality": "Minor",
       "chords": [
-        { "id": "Ebm", "name": "Ebm", "type": "minor", "distance": 0 },
-        { "id": "Fdim", "name": "Fdim", "type": "dim", "distance": 1 },
-        { "id": "Gb", "name": "Gb", "type": "major", "distance": 1 },
-        { "id": "Abm", "name": "Abm", "type": "minor", "distance": 1 },
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 1 },
-        { "id": "B", "name": "B", "type": "major", "distance": 1 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 1 },
-        { "id": "Bb7", "name": "Bb7", "type": "7th", "distance": 2 },
-        { "id": "Eb7", "name": "Eb7", "type": "7th", "distance": 3 }
+        {
+          "id": "Ebm",
+          "name": "Ebm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Fdim",
+          "name": "Fdim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "Gb",
+          "name": "Gb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Abm",
+          "name": "Abm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bb7",
+          "name": "Bb7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "Eb7",
+          "name": "Eb7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Bbaug",
+          "name": "Bb+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Ebm", "target": "Abm", "weight": 1, "label": "i-iv" },
-        { "source": "Ebm", "target": "Bbm", "weight": 1, "label": "i-v" },
-        { "source": "Ebm", "target": "B", "weight": 1, "label": "i-VI" },
-        { "source": "Ebm", "target": "Db", "weight": 1, "label": "i-VII" },
-        { "source": "Ebm", "target": "Gb", "weight": 1, "label": "i-III" },
-        { "source": "Abm", "target": "Ebm", "weight": 1, "label": "iv-i" },
-        { "source": "Bb7", "target": "Ebm", "weight": 1, "label": "V7-i" },
-        { "source": "Db", "target": "Ebm", "weight": 2, "label": "VII-i" },
-        { "source": "B", "target": "Db", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Ebm",
+          "target": "Abm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Ebm",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Ebm",
+          "target": "B",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Ebm",
+          "target": "Db",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Ebm",
+          "target": "Gb",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Abm",
+          "target": "Ebm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "Bb7",
+          "target": "Ebm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "Db",
+          "target": "Ebm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "B",
+          "target": "Db",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Bbaug",
+          "target": "Ebm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "E_minor": {
       "root": "Em",
       "quality": "Minor",
       "chords": [
-        { "id": "Em", "name": "Em", "type": "minor", "distance": 0 },
-        { "id": "F#dim", "name": "F#dim", "type": "dim", "distance": 1 },
-        { "id": "G", "name": "G", "type": "major", "distance": 1 },
-        { "id": "Am", "name": "Am", "type": "minor", "distance": 1 },
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 1 },
-        { "id": "C", "name": "C", "type": "major", "distance": 1 },
-        { "id": "D", "name": "D", "type": "major", "distance": 1 },
-        { "id": "B7", "name": "B7", "type": "7th", "distance": 2 },
-        { "id": "E7", "name": "E7", "type": "7th", "distance": 3 }
+        {
+          "id": "Em",
+          "name": "Em",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "F#dim",
+          "name": "F#dim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "G",
+          "name": "G",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Am",
+          "name": "Am",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "C",
+          "name": "C",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "B7",
+          "name": "B7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "E7",
+          "name": "E7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Baug",
+          "name": "B+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Em", "target": "Am", "weight": 1, "label": "i-iv" },
-        { "source": "Em", "target": "Bm", "weight": 1, "label": "i-v" },
-        { "source": "Em", "target": "C", "weight": 1, "label": "i-VI" },
-        { "source": "Em", "target": "D", "weight": 1, "label": "i-VII" },
-        { "source": "Em", "target": "G", "weight": 1, "label": "i-III" },
-        { "source": "Am", "target": "Em", "weight": 1, "label": "iv-i" },
-        { "source": "B7", "target": "Em", "weight": 1, "label": "V7-i" },
-        { "source": "D", "target": "Em", "weight": 2, "label": "VII-i" },
-        { "source": "C", "target": "D", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Em",
+          "target": "Am",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Em",
+          "target": "Bm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Em",
+          "target": "C",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Em",
+          "target": "D",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Em",
+          "target": "G",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Am",
+          "target": "Em",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "B7",
+          "target": "Em",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "D",
+          "target": "Em",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "C",
+          "target": "D",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Baug",
+          "target": "Em",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "F_minor": {
       "root": "Fm",
       "quality": "Minor",
       "chords": [
-        { "id": "Fm", "name": "Fm", "type": "minor", "distance": 0 },
-        { "id": "Gdim", "name": "Gdim", "type": "dim", "distance": 1 },
-        { "id": "Ab", "name": "Ab", "type": "major", "distance": 1 },
-        { "id": "Bbm", "name": "Bbm", "type": "minor", "distance": 1 },
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 1 },
-        { "id": "Db", "name": "Db", "type": "major", "distance": 1 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 1 },
-        { "id": "C7", "name": "C7", "type": "7th", "distance": 2 },
-        { "id": "F7", "name": "F7", "type": "7th", "distance": 3 }
+        {
+          "id": "Fm",
+          "name": "Fm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Gdim",
+          "name": "Gdim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "Ab",
+          "name": "Ab",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bbm",
+          "name": "Bbm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Db",
+          "name": "Db",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C7",
+          "name": "C7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F7",
+          "name": "F7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Caug",
+          "name": "C+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Fm", "target": "Bbm", "weight": 1, "label": "i-iv" },
-        { "source": "Fm", "target": "Cm", "weight": 1, "label": "i-v" },
-        { "source": "Fm", "target": "Db", "weight": 1, "label": "i-VI" },
-        { "source": "Fm", "target": "Eb", "weight": 1, "label": "i-VII" },
-        { "source": "Fm", "target": "Ab", "weight": 1, "label": "i-III" },
-        { "source": "Bbm", "target": "Fm", "weight": 1, "label": "iv-i" },
-        { "source": "C7", "target": "Fm", "weight": 1, "label": "V7-i" },
-        { "source": "Eb", "target": "Fm", "weight": 2, "label": "VII-i" },
-        { "source": "Db", "target": "Eb", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Fm",
+          "target": "Bbm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Fm",
+          "target": "Cm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Fm",
+          "target": "Db",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Fm",
+          "target": "Eb",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Fm",
+          "target": "Ab",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Bbm",
+          "target": "Fm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "C7",
+          "target": "Fm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "Eb",
+          "target": "Fm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "Db",
+          "target": "Eb",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Caug",
+          "target": "Fm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "F#_minor": {
       "root": "F#m",
       "quality": "Minor",
       "chords": [
-        { "id": "F#m", "name": "F#m", "type": "minor", "distance": 0 },
-        { "id": "G#dim", "name": "G#dim", "type": "dim", "distance": 1 },
-        { "id": "A", "name": "A", "type": "major", "distance": 1 },
-        { "id": "Bm", "name": "Bm", "type": "minor", "distance": 1 },
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 1 },
-        { "id": "D", "name": "D", "type": "major", "distance": 1 },
-        { "id": "E", "name": "E", "type": "major", "distance": 1 },
-        { "id": "C#7", "name": "C#7", "type": "7th", "distance": 2 },
-        { "id": "F#7", "name": "F#7", "type": "7th", "distance": 3 }
+        {
+          "id": "F#m",
+          "name": "F#m",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "G#dim",
+          "name": "G#dim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "A",
+          "name": "A",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Bm",
+          "name": "Bm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "D",
+          "name": "D",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C#7",
+          "name": "C#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "F#7",
+          "name": "F#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "C#aug",
+          "name": "C#+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "F#m", "target": "Bm", "weight": 1, "label": "i-iv" },
-        { "source": "F#m", "target": "C#m", "weight": 1, "label": "i-v" },
-        { "source": "F#m", "target": "D", "weight": 1, "label": "i-VI" },
-        { "source": "F#m", "target": "E", "weight": 1, "label": "i-VII" },
-        { "source": "F#m", "target": "A", "weight": 1, "label": "i-III" },
-        { "source": "Bm", "target": "F#m", "weight": 1, "label": "iv-i" },
-        { "source": "C#7", "target": "F#m", "weight": 1, "label": "V7-i" },
-        { "source": "E", "target": "F#m", "weight": 2, "label": "VII-i" },
-        { "source": "D", "target": "E", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "F#m",
+          "target": "Bm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "F#m",
+          "target": "C#m",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "F#m",
+          "target": "D",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "F#m",
+          "target": "E",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "F#m",
+          "target": "A",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Bm",
+          "target": "F#m",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "C#7",
+          "target": "F#m",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "E",
+          "target": "F#m",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "D",
+          "target": "E",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "C#aug",
+          "target": "F#m",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "G_minor": {
       "root": "Gm",
       "quality": "Minor",
       "chords": [
-        { "id": "Gm", "name": "Gm", "type": "minor", "distance": 0 },
-        { "id": "Adim", "name": "Adim", "type": "dim", "distance": 1 },
-        { "id": "Bb", "name": "Bb", "type": "major", "distance": 1 },
-        { "id": "Cm", "name": "Cm", "type": "minor", "distance": 1 },
-        { "id": "Dm", "name": "Dm", "type": "minor", "distance": 1 },
-        { "id": "Eb", "name": "Eb", "type": "major", "distance": 1 },
-        { "id": "F", "name": "F", "type": "major", "distance": 1 },
-        { "id": "D7", "name": "D7", "type": "7th", "distance": 2 },
-        { "id": "G7", "name": "G7", "type": "7th", "distance": 3 }
+        {
+          "id": "Gm",
+          "name": "Gm",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "Adim",
+          "name": "Adim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "Bb",
+          "name": "Bb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "Cm",
+          "name": "Cm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Dm",
+          "name": "Dm",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "Eb",
+          "name": "Eb",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F",
+          "name": "F",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "D7",
+          "name": "D7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "G7",
+          "name": "G7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "Daug",
+          "name": "D+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "Gm", "target": "Cm", "weight": 1, "label": "i-iv" },
-        { "source": "Gm", "target": "Dm", "weight": 1, "label": "i-v" },
-        { "source": "Gm", "target": "Eb", "weight": 1, "label": "i-VI" },
-        { "source": "Gm", "target": "F", "weight": 1, "label": "i-VII" },
-        { "source": "Gm", "target": "Bb", "weight": 1, "label": "i-III" },
-        { "source": "Cm", "target": "Gm", "weight": 1, "label": "iv-i" },
-        { "source": "D7", "target": "Gm", "weight": 1, "label": "V7-i" },
-        { "source": "F", "target": "Gm", "weight": 2, "label": "VII-i" },
-        { "source": "Eb", "target": "F", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "Gm",
+          "target": "Cm",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "Gm",
+          "target": "Dm",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "Gm",
+          "target": "Eb",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "Gm",
+          "target": "F",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "Gm",
+          "target": "Bb",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "Cm",
+          "target": "Gm",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "D7",
+          "target": "Gm",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "F",
+          "target": "Gm",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "Eb",
+          "target": "F",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "Daug",
+          "target": "Gm",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     },
     "G#_minor": {
       "root": "G#m",
       "quality": "Minor",
       "chords": [
-        { "id": "G#m", "name": "G#m", "type": "minor", "distance": 0 },
-        { "id": "A#dim", "name": "A#dim", "type": "dim", "distance": 1 },
-        { "id": "B", "name": "B", "type": "major", "distance": 1 },
-        { "id": "C#m", "name": "C#m", "type": "minor", "distance": 1 },
-        { "id": "D#m", "name": "D#m", "type": "minor", "distance": 1 },
-        { "id": "E", "name": "E", "type": "major", "distance": 1 },
-        { "id": "F#", "name": "F#", "type": "major", "distance": 1 },
-        { "id": "D#7", "name": "D#7", "type": "7th", "distance": 2 },
-        { "id": "G#7", "name": "G#7", "type": "7th", "distance": 3 }
+        {
+          "id": "G#m",
+          "name": "G#m",
+          "type": "minor",
+          "distance": 0
+        },
+        {
+          "id": "A#dim",
+          "name": "A#dim",
+          "type": "dim",
+          "distance": 1
+        },
+        {
+          "id": "B",
+          "name": "B",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "C#m",
+          "name": "C#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "D#m",
+          "name": "D#m",
+          "type": "minor",
+          "distance": 1
+        },
+        {
+          "id": "E",
+          "name": "E",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "F#",
+          "name": "F#",
+          "type": "major",
+          "distance": 1
+        },
+        {
+          "id": "D#7",
+          "name": "D#7",
+          "type": "7th",
+          "distance": 2
+        },
+        {
+          "id": "G#7",
+          "name": "G#7",
+          "type": "7th",
+          "distance": 3
+        },
+        {
+          "id": "D#aug",
+          "name": "D#+",
+          "type": "aug",
+          "distance": 4
+        }
       ],
       "relationships": [
-        { "source": "G#m", "target": "C#m", "weight": 1, "label": "i-iv" },
-        { "source": "G#m", "target": "D#m", "weight": 1, "label": "i-v" },
-        { "source": "G#m", "target": "E", "weight": 1, "label": "i-VI" },
-        { "source": "G#m", "target": "F#", "weight": 1, "label": "i-VII" },
-        { "source": "G#m", "target": "B", "weight": 1, "label": "i-III" },
-        { "source": "C#m", "target": "G#m", "weight": 1, "label": "iv-i" },
-        { "source": "D#7", "target": "G#m", "weight": 1, "label": "V7-i" },
-        { "source": "F#", "target": "G#m", "weight": 2, "label": "VII-i" },
-        { "source": "E", "target": "F#", "weight": 2, "label": "VI-VII" }
+        {
+          "source": "G#m",
+          "target": "C#m",
+          "weight": 1,
+          "label": "i-iv"
+        },
+        {
+          "source": "G#m",
+          "target": "D#m",
+          "weight": 1,
+          "label": "i-v"
+        },
+        {
+          "source": "G#m",
+          "target": "E",
+          "weight": 1,
+          "label": "i-VI"
+        },
+        {
+          "source": "G#m",
+          "target": "F#",
+          "weight": 1,
+          "label": "i-VII"
+        },
+        {
+          "source": "G#m",
+          "target": "B",
+          "weight": 1,
+          "label": "i-III"
+        },
+        {
+          "source": "C#m",
+          "target": "G#m",
+          "weight": 1,
+          "label": "iv-i"
+        },
+        {
+          "source": "D#7",
+          "target": "G#m",
+          "weight": 1,
+          "label": "V7-i"
+        },
+        {
+          "source": "F#",
+          "target": "G#m",
+          "weight": 2,
+          "label": "VII-i"
+        },
+        {
+          "source": "E",
+          "target": "F#",
+          "weight": 2,
+          "label": "VI-VII"
+        },
+        {
+          "source": "D#aug",
+          "target": "G#m",
+          "weight": 4,
+          "label": "V+-i"
+        }
       ]
     }
   }

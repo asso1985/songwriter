@@ -10,6 +10,8 @@ export interface GraphNode extends SimulationNodeDatum {
   distance: number;
   radius: number;
   opacity: number;
+  /** 0-1 pulse phase for invitation glow on neighboring nodes. 0 = no pulse. */
+  pulsePhase: number;
 }
 
 export interface GraphEdge extends SimulationLinkDatum<GraphNode> {
@@ -47,6 +49,7 @@ export function useForceSimulation(
       distance: chord.distance,
       radius: getNodeRadius(chord.distance),
       opacity: 0,
+      pulsePhase: 0,
       x: centerX + (Math.random() - 0.5) * 50,
       y: centerY + (Math.random() - 0.5) * 50,
       ...(chord.distance === 0 ? { fx: centerX, fy: centerY } : {}),
@@ -90,6 +93,8 @@ export function useForceSimulation(
     const fadeInDuration = 200;
     const maxDistance = Math.max(...chords.map((c) => c.distance));
     const startTime = performance.now();
+    let fadeInRafId: number;
+    let pulseRafId: number;
 
     function animateFadeIn() {
       const elapsed = performance.now() - startTime;
@@ -104,15 +109,52 @@ export function useForceSimulation(
       setNodes([...graphNodes]);
 
       if (progress < 1) {
-        requestAnimationFrame(animateFadeIn);
+        fadeInRafId = requestAnimationFrame(animateFadeIn);
+      } else {
+        // Fade-in complete — start pulse on neighboring nodes (distance === 1)
+        startPulse();
       }
     }
 
-    requestAnimationFrame(animateFadeIn);
+    // Subtle pulse animation on distance-1 nodes to invite first click
+    const PULSE_DURATION = 3000; // pulse for 3 seconds then stop
+    let pulseStart = 0;
+
+    function animatePulse() {
+      const elapsed = performance.now() - pulseStart;
+      if (elapsed > PULSE_DURATION) {
+        // Stop pulsing — reset all pulse phases
+        for (const node of graphNodes) {
+          node.pulsePhase = 0;
+        }
+        setNodes([...graphNodes]);
+        return;
+      }
+
+      // Sine wave pulse: 0→1→0 over ~1.2s cycle
+      const cycleMs = 1200;
+      const phase = Math.sin((elapsed / cycleMs) * Math.PI * 2) * 0.5 + 0.5;
+
+      for (const node of graphNodes) {
+        node.pulsePhase = node.distance === 1 ? phase : 0;
+      }
+
+      setNodes([...graphNodes]);
+      pulseRafId = requestAnimationFrame(animatePulse);
+    }
+
+    function startPulse() {
+      pulseStart = performance.now();
+      pulseRafId = requestAnimationFrame(animatePulse);
+    }
+
+    fadeInRafId = requestAnimationFrame(animateFadeIn);
 
     return () => {
       simulation.stop();
       simulationRef.current = null;
+      cancelAnimationFrame(fadeInRafId);
+      cancelAnimationFrame(pulseRafId);
     };
   }, [chords, relationships, width, height]);
 

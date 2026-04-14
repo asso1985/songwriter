@@ -132,6 +132,15 @@ export default function GraphCanvas({
 
       ctx.globalAlpha = node.opacity;
 
+      // Invitation pulse glow on neighboring nodes
+      if (node.pulsePhase > 0) {
+        const glowRadius = r + 4 + node.pulsePhase * 6;
+        ctx.beginPath();
+        ctx.arc(nx, ny, glowRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(91, 141, 239, ${node.pulsePhase * 0.25})`;
+        ctx.fill();
+      }
+
       const drawShape = shapeDrawers[node.type] ?? drawMajorNode;
       drawShape(ctx, nx, ny, r);
       ctx.fillStyle = color;
@@ -189,6 +198,8 @@ export default function GraphCanvas({
     [panEnabled],
   );
 
+  const lastHoveredRef = useRef<string | null>(null);
+
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
       if (isDragging.current && panEnabled) {
@@ -201,7 +212,11 @@ export default function GraphCanvas({
       }
 
       const { mx, my } = getMousePos(e);
-      onNodeHover(findNodeAt(mx, my));
+      const nodeId = findNodeAt(mx, my);
+      if (nodeId !== lastHoveredRef.current) {
+        lastHoveredRef.current = nodeId;
+        onNodeHover(nodeId);
+      }
     },
     [onNodeHover, panEnabled],
   );

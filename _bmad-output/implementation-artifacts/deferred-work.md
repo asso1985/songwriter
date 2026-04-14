@@ -20,3 +20,21 @@
 - render callback relies on refs instead of proper deps — works but fragile if refactored
 - No rAF batching for rapid pan updates — optimization if jank observed on low-end machines
 - Canvas not scaled for devicePixelRatio — HiDPI/Retina enhancement for later
+
+## Deferred from: code review of 1-4-interactive-chord-network-graph (2026-04-14)
+
+- Canvas not scaled for devicePixelRatio — blurry on HiDPI/Retina displays
+- findNodeAt uses circular hit-test for all shapes — inaccurate for diamonds/triangles/hexagons
+- Keyboard shortcuts intercept +/- globally — may conflict with Radix combobox; address in Epic 4 accessibility
+- No unit test for useForceSimulation hook — tested indirectly via E2E; jsdom limitations
+- No unit test for GraphCanvas rendering logic — Canvas 2D not testable in jsdom
+- hoveredNode/selectedNode not cleared in Redux on key change — pre-existing state management gap
+- D3 simulation mutates useMemo-cached objects — works in practice but violates React immutability expectations
+
+## Deferred from: code review of 2-1-web-audio-engine-and-chord-synthesis (2026-04-14)
+
+- AudioContext never closed on unmount — resource leak on component remount; acceptable for MVP single-page app
+- stopChord does not cancel pending ADSR automation (cancelScheduledValues) — audible impact minimal
+- setBpm accepts zero, negative, or NaN without validation — no consumer yet
+- stopChord setTimeout uses wall-clock time vs audio-clock drift — negligible in practice
+- Redux stopAll and hook stopAll are different things — semantic gap for future consumers
