@@ -47,10 +47,12 @@ beforeEach(() => {
 });
 
 describe("useAudioContext", () => {
-  it("returns playChord, playSequence, stopAll, and isReady", () => {
+  it("returns playChord, playSequence, playLoop, stopLoop, stopAll, and isReady", () => {
     const { result } = renderHook(() => useAudioContext());
     expect(result.current).toHaveProperty("playChord");
     expect(result.current).toHaveProperty("playSequence");
+    expect(result.current).toHaveProperty("playLoop");
+    expect(result.current).toHaveProperty("stopLoop");
     expect(result.current).toHaveProperty("stopAll");
     expect(result.current).toHaveProperty("isReady");
   });

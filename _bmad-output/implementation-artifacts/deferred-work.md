@@ -54,3 +54,11 @@
 - No upper bound on chords array length — acceptable for MVP
 - Remove button unreachable on touch devices (hover-only) — desktop-first MVP
 - Play button has no onClick handler — placeholder for Story 2.4
+
+## Deferred from: code review of 2-4-full-progression-playback-and-looping (2026-04-14)
+
+- BPM captured by value in playLoop — changes during playback ignored until restart (Story 2.5 will address)
+- onChordChange may fire stale index after mid-cycle chord removal
+- No cleanup effect for playLoop on ProgressionBar unmount
+- No guard against bpm <= 0 (setBpm validation deferred from Story 2.1)
+- Conflicting CSS scale classes when isActive and isPulsing both true on ChordChip

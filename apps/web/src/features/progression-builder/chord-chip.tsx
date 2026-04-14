@@ -4,6 +4,7 @@ interface ChordChipProps {
   chordId: string;
   index: number;
   isNew: boolean;
+  isActive: boolean;
   onClick: (chordId: string) => void;
   onRemove: (index: number) => void;
 }
@@ -12,6 +13,7 @@ export default function ChordChip({
   chordId,
   index,
   isNew,
+  isActive,
   onClick,
   onRemove,
 }: ChordChipProps) {
@@ -64,6 +66,7 @@ export default function ChordChip({
         ${isPulsing ? "scale-110" : "scale-100"}
         ${isRemoving ? "opacity-0 scale-75" : "opacity-100"}
         ${isEntering ? "opacity-0 scale-75" : ""}
+        ${isActive ? "ring-2 ring-primary-400 scale-105" : ""}
       `}
       onClick={handleClick}
       onKeyDown={(e) => {

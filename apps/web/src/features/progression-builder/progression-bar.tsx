@@ -6,16 +6,32 @@ import {
   clearChords,
 } from "../../store/slices/progression-slice";
 import { setSelectedNode } from "../../store/slices/graph-slice";
-import { stopAll } from "../../store/slices/audio-slice";
+import {
+  selectIsPlaying,
+  selectBpm,
+  setIsPlaying,
+  stopAll as stopAllAction,
+} from "../../store/slices/audio-slice";
+import { useAudioContext } from "../audio-engine/use-audio-context";
 import ChordChip from "./chord-chip";
 
 export default function ProgressionBar() {
   const dispatch = useAppDispatch();
   const chords = useAppSelector(selectChords);
+  const isPlaying = useAppSelector(selectIsPlaying);
+  const bpm = useAppSelector(selectBpm);
   const isEmpty = chords.length === 0;
+  const canPlay = chords.length >= 2;
   const prevLengthRef = useRef(chords.length);
   const replayTimerRef = useRef<number>(0);
   const [isClearing, setIsClearing] = useState(false);
+  const [activeChordIndex, setActiveChordIndex] = useState(-1);
+
+  // Ref for chords so playLoop reads fresh values each cycle
+  const chordsRef = useRef(chords);
+  chordsRef.current = chords;
+
+  const { playLoop, stopLoop, stopAll } = useAudioContext();
 
   // Track which chip index is newly added
   const newChordIndex =
@@ -30,8 +46,22 @@ export default function ProgressionBar() {
     return () => clearTimeout(replayTimerRef.current);
   }, []);
 
+  const stopPlayback = useCallback(() => {
+    stopLoop();
+    dispatch(setIsPlaying(false));
+    setActiveChordIndex(-1);
+  }, [stopLoop, dispatch]);
+
+  // Stop playback if chords drop below 2 while playing
+  useEffect(() => {
+    if (isPlaying && chords.length < 2) {
+      stopPlayback();
+    }
+  }, [chords.length, isPlaying, stopPlayback]);
+
   const handleChipClick = useCallback(
     (chordId: string) => {
+      if (isPlaying) stopPlayback();
       dispatch(setSelectedNode(chordId));
       clearTimeout(replayTimerRef.current);
       replayTimerRef.current = window.setTimeout(
@@ -39,7 +69,7 @@ export default function ProgressionBar() {
         100,
       );
     },
-    [dispatch],
+    [dispatch, isPlaying, stopPlayback],
   );
 
   const handleRemove = useCallback(
@@ -50,18 +80,32 @@ export default function ProgressionBar() {
   );
 
   const handleClear = useCallback(() => {
-    // Animate out first
+    if (isPlaying) stopPlayback();
     setIsClearing(true);
-  }, []);
+  }, [isPlaying, stopPlayback]);
 
   function handleClearTransitionEnd() {
     if (isClearing) {
       setIsClearing(false);
       dispatch(clearChords());
       dispatch(setSelectedNode(null));
-      dispatch(stopAll());
+      dispatch(stopAllAction());
     }
   }
+
+  const handlePlayStop = useCallback(() => {
+    if (isPlaying) {
+      stopPlayback();
+    } else {
+      // Stop any preview first
+      stopAll();
+      dispatch(setSelectedNode(null));
+      dispatch(setIsPlaying(true));
+      playLoop(chordsRef, bpm, (index) => {
+        setActiveChordIndex(index);
+      });
+    }
+  }, [isPlaying, stopPlayback, stopAll, playLoop, bpm, dispatch]);
 
   return (
     <div className="flex items-center justify-between w-full h-full gap-3">
@@ -81,6 +125,7 @@ export default function ProgressionBar() {
               chordId={chordId}
               index={index}
               isNew={index === newChordIndex}
+              isActive={isPlaying && index === activeChordIndex}
               onClick={handleChipClick}
               onRemove={handleRemove}
             />
@@ -100,11 +145,12 @@ export default function ProgressionBar() {
         )}
         <button
           type="button"
-          className="text-sm text-text-secondary disabled:opacity-40"
-          disabled={chords.length < 2}
-          aria-label="Play progression"
+          className="text-sm disabled:opacity-40 transition-colors"
+          disabled={!canPlay}
+          aria-label={isPlaying ? "Stop playback" : "Play progression"}
+          onClick={handlePlayStop}
         >
-          ▶
+          {isPlaying ? "⏹" : "▶"}
         </button>
         <span className="text-xs text-text-secondary">BPM</span>
       </div>

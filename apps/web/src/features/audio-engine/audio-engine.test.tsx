@@ -21,6 +21,8 @@ vi.mock("./use-audio-context", () => ({
   useAudioContext: () => ({
     playChord: mockPlayChord,
     playSequence: mockPlaySequence,
+    playLoop: vi.fn(),
+    stopLoop: vi.fn(),
     stopAll: mockStopAll,
     isReady: true,
   }),

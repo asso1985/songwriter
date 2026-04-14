@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen, within, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
@@ -10,6 +10,18 @@ import graphReducer from "../../store/slices/graph-slice";
 import audioReducer from "../../store/slices/audio-slice";
 import aiReducer from "../../store/slices/ai-slice";
 import ProgressionBar from "./progression-bar";
+
+// Mock useAudioContext since ProgressionBar uses it for playback
+vi.mock("../audio-engine/use-audio-context", () => ({
+  useAudioContext: () => ({
+    playChord: vi.fn(),
+    playSequence: vi.fn(),
+    playLoop: vi.fn(),
+    stopLoop: vi.fn(),
+    stopAll: vi.fn(),
+    isReady: true,
+  }),
+}));
 
 function createTestStore() {
   return configureStore({
@@ -143,5 +155,58 @@ describe("ProgressionBar", () => {
 
     const removeBtn = within(chip).getByRole("button", { name: /remove c/i });
     expect(removeBtn).toHaveAccessibleName("Remove C");
+  });
+
+  it("Play button has aria-label 'Play progression' when stopped", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    renderWithStore(store);
+    const playBtn = screen.getByRole("button", { name: "Play progression" });
+    expect(playBtn).toBeInTheDocument();
+    expect(playBtn).not.toBeDisabled();
+  });
+
+  it("Play button is disabled with fewer than 2 chords", () => {
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    renderWithStore(store);
+    const playBtn = screen.getByRole("button", { name: "Play progression" });
+    expect(playBtn).toBeDisabled();
+  });
+
+  it("clicking Play dispatches setIsPlaying(true)", async () => {
+    const user = userEvent.setup();
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    renderWithStore(store);
+
+    await user.click(screen.getByRole("button", { name: "Play progression" }));
+    expect(store.getState().audio.isPlaying).toBe(true);
+  });
+
+  it("Play button shows stop icon and label when playing", async () => {
+    const user = userEvent.setup();
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    renderWithStore(store);
+
+    await user.click(screen.getByRole("button", { name: "Play progression" }));
+    const stopBtn = screen.getByRole("button", { name: "Stop playback" });
+    expect(stopBtn).toBeInTheDocument();
+  });
+
+  it("clicking Stop dispatches setIsPlaying(false)", async () => {
+    const user = userEvent.setup();
+    const store = createTestStore();
+    store.dispatch(addChord("C"));
+    store.dispatch(addChord("Am"));
+    renderWithStore(store);
+
+    await user.click(screen.getByRole("button", { name: "Play progression" }));
+    await user.click(screen.getByRole("button", { name: "Stop playback" }));
+    expect(store.getState().audio.isPlaying).toBe(false);
   });
 });
