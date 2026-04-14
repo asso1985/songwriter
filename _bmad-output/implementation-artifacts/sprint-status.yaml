@@ -61,8 +61,8 @@ development_status:
   epic-2-retrospective: optional
 
   # Epic 3: AI Music Theory Guidance
-  epic-3: backlog
-  3-1-express-api-proxy-and-llm-service: backlog
+  epic-3: in-progress
+  3-1-express-api-proxy-and-llm-service: done
   3-2-flow-mode-emoji-cues: backlog
   3-3-learn-mode-toggle-and-explanation-panel: backlog
   epic-3-retrospective: optional

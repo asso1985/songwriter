@@ -5,32 +5,67 @@ import type { ExplainRequest } from "@songwriter/shared";
 describe("MockLlmService", () => {
   const service = new MockLlmService();
 
-  it("returns mock explanation in flow mode", async () => {
+  it("returns pre-written response for known chord (Am)", async () => {
     const request: ExplainRequest = {
-      chordId: "c-major",
-      progressionContext: [],
-      key: "C",
+      chordId: "Am",
+      progressionContext: ["C"],
+      key: "C_major",
       mode: "flow",
     };
 
     const response = await service.getExplanation(request);
 
-    expect(response.explanation).toContain("c-major");
-    expect(response.explanation).toContain("C");
-    expect(response.emoji).toBe("✨");
+    expect(response.explanation).toContain("relative minor");
+    expect(response.chordFunction).toBe("vi — Relative Minor");
+    expect(response.chordCharacter).toBe("Melancholy, introspective");
+    expect(response.emoji).toBe("🌙");
   });
 
-  it("returns mock explanation in learn mode", async () => {
+  it("returns pre-written response for G chord", async () => {
     const request: ExplainRequest = {
-      chordId: "g-major",
+      chordId: "G",
       progressionContext: [],
-      key: "C",
+      key: "C_major",
       mode: "learn",
     };
 
     const response = await service.getExplanation(request);
 
-    expect(response.explanation).toContain("g-major");
-    expect(response.details).toBeDefined();
+    expect(response.chordFunction).toBe("V — Dominant");
+    expect(response.chordCharacter).toBe("Bright, expectant");
+  });
+
+  it("returns fallback response for unknown chord", async () => {
+    const request: ExplainRequest = {
+      chordId: "Bb7",
+      progressionContext: [],
+      key: "C_major",
+      mode: "flow",
+    };
+
+    const response = await service.getExplanation(request);
+
+    expect(response.explanation).toContain("Bb7");
+    expect(response.chordFunction).toContain("Bb7");
+    expect(response.chordCharacter).toBeDefined();
+    expect(response.emoji).toBe("🎵");
+  });
+
+  it("returns all required fields in every response", async () => {
+    const request: ExplainRequest = {
+      chordId: "F",
+      progressionContext: ["C", "Am"],
+      key: "C_major",
+      mode: "learn",
+    };
+
+    const response = await service.getExplanation(request);
+
+    expect(response).toHaveProperty("explanation");
+    expect(response).toHaveProperty("chordFunction");
+    expect(response).toHaveProperty("chordCharacter");
+    expect(typeof response.explanation).toBe("string");
+    expect(typeof response.chordFunction).toBe("string");
+    expect(typeof response.chordCharacter).toBe("string");
   });
 });

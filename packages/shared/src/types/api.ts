@@ -7,12 +7,20 @@ export interface ExplainRequest {
 
 export interface ExplainResponse {
   explanation: string;
+  chordFunction: string;
+  chordCharacter: string;
   emoji?: string;
-  details?: string;
 }
 
 export interface ApiError {
   message: string;
   code: string;
-  status: number;
+}
+
+export interface ApiSuccessResponse<T> {
+  data: T;
+}
+
+export interface ApiErrorResponse {
+  error: ApiError;
 }

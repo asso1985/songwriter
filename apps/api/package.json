@@ -12,6 +12,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.88.0",
     "@songwriter/shared": "workspace:*",
     "cors": "^2.8.5",
     "express": "^5.2.0",

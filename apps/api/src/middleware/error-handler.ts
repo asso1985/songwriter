@@ -1,5 +1,4 @@
 import type { Request, Response, NextFunction } from "express";
-import type { ApiError } from "@songwriter/shared";
 
 export function errorHandler(
   err: Error,
@@ -7,13 +6,12 @@ export function errorHandler(
   res: Response,
   _next: NextFunction,
 ) {
-  console.error("Unhandled error:", err.message);
+  console.error("Unhandled error:", err.stack ?? err.message);
 
-  const apiError: ApiError = {
-    message: "Internal server error",
-    code: "INTERNAL_ERROR",
-    status: 500,
-  };
-
-  res.status(apiError.status).json(apiError);
+  res.status(500).json({
+    error: {
+      message: "Internal server error",
+      code: "INTERNAL_ERROR",
+    },
+  });
 }
