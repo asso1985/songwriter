@@ -410,7 +410,44 @@ Load config from `{project-root}/_bmad/bmm/config.yaml` and resolve:
     <action if="definition-of-done validation fails">HALT - Address DoD failures before completing</action>
   </step>
 
-  <step n="10" goal="Completion communication and user support">
+  <step n="10" goal="Git workflow — create worktree branch, commit, open PR, and STOP">
+    <critical>All story work MUST happen in a Claude Code worktree (`claude -w`). NEVER push directly to main.</critical>
+    <critical>After opening the PR you MUST STOP and wait for human review. Do NOT merge.</critical>
+
+    <action>Derive a short slug from {{story_key}} (e.g. "1-2-user-authentication" → "user-authentication")</action>
+
+    <action>If not already in a worktree, instruct the user to restart the session with:
+      claude -w feat/{{story_key}}-{{slug}}
+      This creates an isolated worktree with its own branch, keeping main untouched.
+    </action>
+
+    <action>Stage all changed files listed in the story File List section</action>
+    <action>Commit with a conventional commit message referencing the story:
+      feat({{story_key}}): {{story_title}}
+    </action>
+    <action>Push the branch: git push -u origin HEAD</action>
+
+    <action>Open a PR using gh pr create:
+      - Title: the story title
+      - Body: story acceptance criteria formatted as a checklist, plus a link to the story file
+    </action>
+
+    <action>Output the PR URL to the user</action>
+
+    <output>🔀 **PR Opened — Waiting for Human Review**
+
+      **Worktree branch:** feat/{{story_key}}-{{slug}}
+      **PR URL:** {{pr_url}}
+
+      ⏸️ **STOPPED.** Review the PR, leave comments, then either:
+      - Resume in this worktree and run `/read-pr-feedback` to address review comments
+      - Run `/merge-story` once the PR is approved (this will also clean up the worktree)
+    </output>
+
+    <action>HALT — Do not proceed past this point. Wait for human review.</action>
+  </step>
+
+  <step n="11" goal="Completion communication and user support">
     <action>Execute the enhanced definition-of-done checklist using the validation framework</action>
     <action>Prepare a concise summary in Dev Agent Record → Completion Notes</action>
 
