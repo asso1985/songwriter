@@ -1,5 +1,6 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 import type { GraphNode } from "./use-force-simulation";
+import { getChordEmoji } from "./chord-emoji";
 
 const COMMIT_BUTTON_RADIUS = 14;
 
@@ -268,6 +269,15 @@ export default function GraphCanvas({
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillText(node.name, nx, ny);
+
+      // Draw emoji cue on hovered node (top-right)
+      if (isHovered && !isPreviewing) {
+        const emoji = getChordEmoji(node.distance);
+        ctx.font = "14px sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(emoji, nx + r * 0.6, ny - r * 0.6);
+      }
 
       // Draw "+" commit button on previewing node
       if (isPreviewing) {
