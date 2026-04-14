@@ -60,7 +60,11 @@ function KeySelectorExpanded({
               className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg"
               position="popper"
               sideOffset={4}
+              style={{ maxHeight: "var(--radix-select-content-available-height)" }}
             >
+              <Select.ScrollUpButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
+                ▴
+              </Select.ScrollUpButton>
               <Select.Viewport className="p-1">
                 {KEY_ROOTS.map((note) => (
                   <Select.Item
@@ -72,6 +76,9 @@ function KeySelectorExpanded({
                   </Select.Item>
                 ))}
               </Select.Viewport>
+              <Select.ScrollDownButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
+                ▾
+              </Select.ScrollDownButton>
             </Select.Content>
           </Select.Portal>
         </Select.Root>
@@ -89,7 +96,11 @@ function KeySelectorExpanded({
               className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg"
               position="popper"
               sideOffset={4}
+              style={{ maxHeight: "var(--radix-select-content-available-height)" }}
             >
+              <Select.ScrollUpButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
+                ▴
+              </Select.ScrollUpButton>
               <Select.Viewport className="p-1">
                 {QUALITIES.map((q) => (
                   <Select.Item
@@ -101,6 +112,9 @@ function KeySelectorExpanded({
                   </Select.Item>
                 ))}
               </Select.Viewport>
+              <Select.ScrollDownButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
+                ▾
+              </Select.ScrollDownButton>
             </Select.Content>
           </Select.Portal>
         </Select.Root>
