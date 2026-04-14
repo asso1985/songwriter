@@ -57,10 +57,9 @@ function KeySelectorExpanded({
           </Select.Trigger>
           <Select.Portal>
             <Select.Content
-              className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg"
+              className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg max-h-[var(--radix-select-content-available-height)]"
               position="popper"
               sideOffset={4}
-              style={{ maxHeight: "var(--radix-select-content-available-height)" }}
             >
               <Select.ScrollUpButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
                 ▴
@@ -93,10 +92,9 @@ function KeySelectorExpanded({
           </Select.Trigger>
           <Select.Portal>
             <Select.Content
-              className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg"
+              className="overflow-hidden rounded-md border border-border bg-surface-elevated shadow-lg max-h-[var(--radix-select-content-available-height)]"
               position="popper"
               sideOffset={4}
-              style={{ maxHeight: "var(--radix-select-content-available-height)" }}
             >
               <Select.ScrollUpButton className="flex items-center justify-center h-6 cursor-default text-text-secondary">
                 ▴
