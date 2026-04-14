@@ -67,9 +67,8 @@ export default function ExplanationPanel() {
       role="complementary"
       aria-live="polite"
       tabIndex={0}
-      className={`w-[280px] shrink-0 border-l border-border bg-surface-elevated overflow-y-auto
-        transition-all duration-250 ease-out
-        ${isVisible ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 w-0 border-0 p-0"}`}
+      className={`overflow-y-auto transition-all duration-250 ease-out
+        ${isVisible ? "w-[280px] shrink-0 border-l border-border bg-surface-elevated translate-x-0 opacity-100" : "w-0 opacity-0 overflow-hidden"}`}
     >
       {isVisible && (
         <div className="p-4 flex flex-col gap-3">
