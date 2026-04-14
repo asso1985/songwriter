@@ -7,6 +7,7 @@ import KeySelector, {
 import { useAppSelector } from "./store/hooks";
 import ChordGraph from "./features/chord-graph/chord-graph";
 import { selectCurrentKey, selectIsEditingKey } from "./store/slices/progression-slice";
+import { AudioEngine } from "./features/audio-engine/audio-engine";
 
 function GraphAreaContent() {
   const currentKey = useAppSelector(selectCurrentKey);
@@ -50,6 +51,7 @@ export default function App() {
       }
     >
       <DesktopGate>
+        <AudioEngine />
         <AppContent />
       </DesktopGate>
     </ErrorBoundary>

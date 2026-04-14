@@ -21,6 +21,7 @@ describe("Redux Store", () => {
       isPlaying: false,
       isLooping: false,
       previewChord: null,
+      bpm: 120,
     });
 
     expect(state.ai).toEqual({
