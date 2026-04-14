@@ -13,3 +13,10 @@
 - ErrorBoundary has no reset mechanism — acceptable for MVP, add retry/reset in later story
 - DesktopGate renders full app tree on mobile via CSS-only hiding — JS conditional rendering is optimization for later
 - Self-host Nunito font for reliability — Google Fonts CDN acceptable for MVP
+
+## Deferred from: code review of 1-5-graph-zoom-controls (2026-04-14)
+
+- getMousePos/findNodeAt not in useCallback deps — works via refs, lint-only concern
+- render callback relies on refs instead of proper deps — works but fragile if refactored
+- No rAF batching for rapid pan updates — optimization if jank observed on low-end machines
+- Canvas not scaled for devicePixelRatio — HiDPI/Retina enhancement for later

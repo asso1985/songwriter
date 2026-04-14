@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback, useState } from "react";
 import type { GraphNode } from "./use-force-simulation";
 
 interface GraphCanvasProps {
@@ -6,6 +6,8 @@ interface GraphCanvasProps {
   hoveredNodeId: string | null;
   width: number;
   height: number;
+  panEnabled: boolean;
+  currentKey: string;
   onNodeHover: (nodeId: string | null) => void;
   onNodeClick: (nodeId: string) => void;
 }
@@ -86,6 +88,8 @@ export default function GraphCanvas({
   hoveredNodeId,
   width,
   height,
+  panEnabled,
+  currentKey,
   onNodeHover,
   onNodeClick,
 }: GraphCanvasProps) {
@@ -93,19 +97,34 @@ export default function GraphCanvas({
   const nodesRef = useRef(nodes);
   nodesRef.current = nodes;
 
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const isDragging = useRef(false);
+  const didDrag = useRef(false);
+  const dragStart = useRef({ x: 0, y: 0 });
+  const panOffsetRef = useRef(panOffset);
+  panOffsetRef.current = panOffset;
+
+  // Reset pan when panEnabled changes or key changes
+  useEffect(() => {
+    setPanOffset({ x: 0, y: 0 });
+  }, [panEnabled, currentKey]);
+
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const ox = panOffsetRef.current.x;
+    const oy = panOffsetRef.current.y;
+
     ctx.clearRect(0, 0, width, height);
 
     for (const node of nodesRef.current) {
       if (node.opacity <= 0 || node.x == null || node.y == null) continue;
 
-      const nx = node.x as number;
-      const ny = node.y as number;
+      const nx = (node.x as number) + ox;
+      const ny = (node.y as number) + oy;
       const isHovered = node.id === hoveredNodeId;
       const scale = isHovered ? 1.15 : 1;
       const r = node.radius * scale;
@@ -113,7 +132,6 @@ export default function GraphCanvas({
 
       ctx.globalAlpha = node.opacity;
 
-      // Draw shape
       const drawShape = shapeDrawers[node.type] ?? drawMajorNode;
       drawShape(ctx, nx, ny, r);
       ctx.fillStyle = color;
@@ -122,7 +140,6 @@ export default function GraphCanvas({
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      // Draw label
       ctx.fillStyle = "#FFFFFF";
       ctx.font = `${isHovered ? "bold " : ""}${Math.round(r * 0.55)}px 'Nunito', sans-serif`;
       ctx.textAlign = "center";
@@ -135,57 +152,80 @@ export default function GraphCanvas({
 
   useEffect(() => {
     render();
-  }, [render, nodes]);
+  }, [render, nodes, panOffset]);
+
+  function getMousePos(e: React.MouseEvent<HTMLCanvasElement>) {
+    const canvas = canvasRef.current;
+    if (!canvas) return { mx: 0, my: 0 };
+    const rect = canvas.getBoundingClientRect();
+    return {
+      mx: e.clientX - rect.left - panOffsetRef.current.x,
+      my: e.clientY - rect.top - panOffsetRef.current.y,
+    };
+  }
+
+  function findNodeAt(mx: number, my: number): string | null {
+    for (const node of nodesRef.current) {
+      if (node.opacity <= 0) continue;
+      const x = node.x as number | undefined;
+      const y = node.y as number | undefined;
+      if (x == null || y == null) continue;
+      const dx = mx - x;
+      const dy = my - y;
+      if (dx * dx + dy * dy < node.radius * node.radius) {
+        return node.id;
+      }
+    }
+    return null;
+  }
+
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent<HTMLCanvasElement>) => {
+      if (!panEnabled) return;
+      isDragging.current = true;
+      didDrag.current = false;
+      dragStart.current = { x: e.clientX - panOffsetRef.current.x, y: e.clientY - panOffsetRef.current.y };
+    },
+    [panEnabled],
+  );
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      let found: string | null = null;
-      for (const node of nodesRef.current) {
-        const x = node.x as number | undefined;
-        const y = node.y as number | undefined;
-        if (x == null || y == null) continue;
-        const dx = mx - x;
-        const dy = my - y;
-        if (dx * dx + dy * dy < node.radius * node.radius) {
-          found = node.id;
-          break;
-        }
+      if (isDragging.current && panEnabled) {
+        didDrag.current = true;
+        setPanOffset({
+          x: e.clientX - dragStart.current.x,
+          y: e.clientY - dragStart.current.y,
+        });
+        return;
       }
-      onNodeHover(found);
+
+      const { mx, my } = getMousePos(e);
+      onNodeHover(findNodeAt(mx, my));
     },
-    [onNodeHover],
+    [onNodeHover, panEnabled],
   );
+
+  const handleMouseUp = useCallback(() => {
+    isDragging.current = false;
+  }, []);
 
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLCanvasElement>) => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
-
-      for (const node of nodesRef.current) {
-        const x = node.x as number | undefined;
-        const y = node.y as number | undefined;
-        if (x == null || y == null) continue;
-        const dx = mx - x;
-        const dy = my - y;
-        if (dx * dx + dy * dy < node.radius * node.radius) {
-          onNodeClick(node.id);
-          return;
-        }
+      if (didDrag.current) {
+        didDrag.current = false;
+        return;
       }
+      const { mx, my } = getMousePos(e);
+      const nodeId = findNodeAt(mx, my);
+      if (nodeId) onNodeClick(nodeId);
     },
     [onNodeClick],
   );
 
   const handleMouseLeave = useCallback(() => {
+    isDragging.current = false;
+    didDrag.current = false;
     onNodeHover(null);
   }, [onNodeHover]);
 
@@ -194,8 +234,10 @@ export default function GraphCanvas({
       ref={canvasRef}
       width={width}
       height={height}
-      className="block"
+      className={`block ${panEnabled ? "cursor-grab active:cursor-grabbing" : ""}`}
+      onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
       onClick={handleClick}
       onMouseLeave={handleMouseLeave}
       role="img"
