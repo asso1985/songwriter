@@ -17,7 +17,7 @@ test.describe("App Shell", () => {
   test("shows progression bar placeholder", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByText("Progression chords will appear here"),
+      page.getByText("Click a chord to start building"),
     ).toBeVisible();
   });
 

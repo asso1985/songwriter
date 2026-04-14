@@ -47,3 +47,10 @@
 - Recenter animation uses stale node position — negligible in 300ms window
 - recenterNodeId setTimeout has no cleanup on unmount — React suppresses warning
 - No AudioContext cleanup on hook unmount — pre-existing from Story 2.1
+
+## Deferred from: code review of 2-3-progression-bar-and-chord-management (2026-04-14)
+
+- removeChord accepts out-of-bounds index without validation — no invalid callers exist
+- No upper bound on chords array length — acceptable for MVP
+- Remove button unreachable on touch devices (hover-only) — desktop-first MVP
+- Play button has no onClick handler — placeholder for Story 2.4

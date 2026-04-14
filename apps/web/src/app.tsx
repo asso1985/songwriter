@@ -8,6 +8,7 @@ import { useAppSelector } from "./store/hooks";
 import ChordGraph from "./features/chord-graph/chord-graph";
 import { selectCurrentKey, selectIsEditingKey } from "./store/slices/progression-slice";
 import { AudioEngine } from "./features/audio-engine/audio-engine";
+import ProgressionBar from "./features/progression-builder/progression-bar";
 
 function GraphAreaContent() {
   const currentKey = useAppSelector(selectCurrentKey);
@@ -37,6 +38,7 @@ function AppContent() {
         ) : undefined
       }
       graphArea={<GraphAreaContent />}
+      progressionBar={<ProgressionBar />}
     />
   );
 }
