@@ -220,7 +220,14 @@ export default function GraphCanvas({
 
     ctx.clearRect(0, 0, width, height);
 
-    for (const node of nodesRef.current) {
+    // Draw previewing node last so its "+" commit button is never covered
+    const sortedNodes = previewingNodeId
+      ? [...nodesRef.current].sort((a, b) =>
+          a.id === previewingNodeId ? 1 : b.id === previewingNodeId ? -1 : 0,
+        )
+      : nodesRef.current;
+
+    for (const node of sortedNodes) {
       if (node.opacity <= 0 || node.x == null || node.y == null) continue;
 
       const nx = (node.x as number) + ox;
