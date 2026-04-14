@@ -70,5 +70,5 @@ development_status:
   # Epic 4: Accessibility & Keyboard Navigation
   epic-4: in-progress
   4-1-keyboard-navigation-and-shortcuts: done
-  4-2-chord-list-alternative-and-screen-reader-support: backlog
+  4-2-chord-list-alternative-and-screen-reader-support: done
   epic-4-retrospective: optional

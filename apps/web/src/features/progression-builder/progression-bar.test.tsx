@@ -74,9 +74,9 @@ describe("ProgressionBar", () => {
     store.dispatch(addChord("F"));
     renderWithStore(store);
 
-    expect(screen.getByRole("button", { name: "C" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Am" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "F" })).toBeInTheDocument();
+    expect(screen.getByRole("listitem", { name: /^C,/ })).toBeInTheDocument();
+    expect(screen.getByRole("listitem", { name: /^Am,/ })).toBeInTheDocument();
+    expect(screen.getByRole("listitem", { name: /^F,/ })).toBeInTheDocument();
   });
 
   it("renders correct number of chips", () => {
@@ -127,7 +127,7 @@ describe("ProgressionBar", () => {
     store.dispatch(addChord("Am"));
     renderWithStore(store);
 
-    await user.click(screen.getByRole("button", { name: "Am" }));
+    await user.click(screen.getByRole("listitem", { name: /^Am,/ }));
     expect(store.getState().graph.selectedNode).toBe("Am");
   });
 

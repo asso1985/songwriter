@@ -13,6 +13,7 @@ import { getChordsByKey } from "../../data/get-chords-by-key";
 import { useForceSimulation, type GraphNode } from "./use-force-simulation";
 import GraphCanvas from "./graph-canvas";
 import ZoomControls from "./zoom-controls";
+import ChordList from "./chord-list";
 
 const ZOOM_IN_MAX_DISTANCE = 1;
 const ZOOM_IN_SCALE_FACTOR = 1.5;
@@ -29,6 +30,7 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [recenterNodeId, setRecenterNodeId] = useState<string | null>(null);
+  const [showChordList, setShowChordList] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -114,6 +116,10 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
         dispatch(setViewMode("zoomed-out"));
       } else if (e.key === "Escape") {
         dispatch(setSelectedNode(null));
+        setShowChordList(false);
+      } else if (e.key === "l" || e.key === "L") {
+        e.preventDefault();
+        setShowChordList((prev) => !prev);
       }
     }
 
@@ -155,6 +161,15 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
         />
       )}
       <ZoomControls />
+      {showChordList && keyData && (
+        <ChordList
+          chords={keyData.chords}
+          onClose={() => {
+            setShowChordList(false);
+            containerRef.current?.focus();
+          }}
+        />
+      )}
     </div>
   );
 }

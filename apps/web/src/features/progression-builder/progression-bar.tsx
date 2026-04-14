@@ -35,6 +35,7 @@ export default function ProgressionBar() {
   const [isClearing, setIsClearing] = useState(false);
   const [activeChordIndex, setActiveChordIndex] = useState(-1);
   const [isTapping, setIsTapping] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
   const tapTimerRef = useRef<number>(0);
   const tapTimestampsRef = useRef<number[]>([]);
 
@@ -50,8 +51,18 @@ export default function ProgressionBar() {
     chords.length > prevLengthRef.current ? chords.length - 1 : -1;
 
   useEffect(() => {
+    if (chords.length > prevLengthRef.current) {
+      const added = chords[chords.length - 1];
+      setAnnouncement(
+        `${added} added to progression, position ${chords.length} of ${chords.length}`,
+      );
+    } else if (chords.length < prevLengthRef.current && chords.length > 0) {
+      setAnnouncement(`Chord removed from progression`);
+    } else if (chords.length === 0 && prevLengthRef.current > 0) {
+      setAnnouncement("Progression cleared");
+    }
     prevLengthRef.current = chords.length;
-  }, [chords.length]);
+  }, [chords]);
 
   useEffect(() => {
     return () => {
@@ -187,6 +198,8 @@ export default function ProgressionBar() {
         </span>
       ) : (
         <div
+          role="list"
+          aria-label="Chord progression"
           className={`flex items-center gap-2 overflow-x-auto min-w-0 flex-1 transition-all duration-300
             ${isClearing ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
           onTransitionEnd={handleClearTransitionEnd}
@@ -196,6 +209,7 @@ export default function ProgressionBar() {
               key={`${chordId}-${index}`}
               chordId={chordId}
               index={index}
+              total={chords.length}
               isNew={index === newChordIndex}
               isActive={isPlaying && index === activeChordIndex}
               onClick={handleChipClick}
@@ -204,6 +218,10 @@ export default function ProgressionBar() {
           ))}
         </div>
       )}
+      {/* aria-live region for progression change announcements */}
+      <span className="sr-only" aria-live="polite" role="status">
+        {announcement}
+      </span>
 
       <div className="flex items-center gap-2 shrink-0">
         {!isEmpty && (

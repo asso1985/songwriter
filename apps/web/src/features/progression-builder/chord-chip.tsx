@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 interface ChordChipProps {
   chordId: string;
   index: number;
+  total: number;
   isNew: boolean;
   isActive: boolean;
   onClick: (chordId: string) => void;
@@ -12,6 +13,7 @@ interface ChordChipProps {
 export default function ChordChip({
   chordId,
   index,
+  total,
   isNew,
   isActive,
   onClick,
@@ -57,8 +59,9 @@ export default function ChordChip({
   return (
     <div
       data-testid="chord-chip"
-      role="button"
+      role="listitem"
       tabIndex={0}
+      aria-label={`${chordId}, position ${index + 1} of ${total}`}
       className={`relative inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium
         bg-primary-50 text-primary-500 cursor-pointer select-none
         transition-all duration-200
