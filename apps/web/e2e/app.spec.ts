@@ -9,9 +9,9 @@ test.describe("App Shell", () => {
     await expect(page.locator("footer#progression-bar")).toBeVisible();
   });
 
-  test("shows graph area placeholder", async ({ page }) => {
+  test("shows key selector in graph area on initial load", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByText("Chord graph will appear here")).toBeVisible();
+    await expect(page.getByText("Choose a Key")).toBeVisible();
   });
 
   test("shows progression bar placeholder", async ({ page }) => {
@@ -32,7 +32,6 @@ test.describe("App Shell", () => {
 
   test("configures Nunito as the sans font family", async ({ page }) => {
     await page.goto("/");
-    // Verify the font-sans class is applied (which uses our --font-family-sans: Nunito token)
     const hasFontSans = await page.locator("div.font-sans").first().isVisible();
     expect(hasFontSans).toBe(true);
   });
@@ -42,7 +41,6 @@ test.describe("App Shell", () => {
     const bg = await page.locator("div.bg-surface").first().evaluate(
       (el) => window.getComputedStyle(el).backgroundColor,
     );
-    // #FAFAF8 = rgb(250, 250, 248)
     expect(bg).toBe("rgb(250, 250, 248)");
   });
 });

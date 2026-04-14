@@ -7,11 +7,13 @@ describe("Redux Store", () => {
     expect(state.progression).toEqual({
       chords: [],
       currentKey: "",
+      isEditingKey: false,
     });
 
     expect(state.graph).toEqual({
       zoomLevel: 1,
       selectedNode: null,
+      hoveredNode: null,
       viewMode: "zoomed-in",
     });
 

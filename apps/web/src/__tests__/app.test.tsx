@@ -1,10 +1,29 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
-import { store } from "../store";
+import { configureStore } from "@reduxjs/toolkit";
+import progressionReducer from "../store/slices/progression-slice";
+import graphReducer from "../store/slices/graph-slice";
+import audioReducer from "../store/slices/audio-slice";
+import aiReducer from "../store/slices/ai-slice";
 import App from "../app";
 
-function renderApp() {
+function createTestStore(initialKey = "") {
+  return configureStore({
+    reducer: {
+      progression: progressionReducer,
+      graph: graphReducer,
+      audio: audioReducer,
+      ai: aiReducer,
+    },
+    preloadedState: {
+      progression: { chords: [], currentKey: initialKey, isEditingKey: false },
+    },
+  });
+}
+
+function renderApp(initialKey = "") {
+  const store = createTestStore(initialKey);
   return render(
     <Provider store={store}>
       <BrowserRouter>
@@ -31,17 +50,29 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders graph area placeholder", () => {
+  it("shows key selector centered when no key selected", () => {
     renderApp();
-    expect(
-      screen.getByText("Chord graph will appear here"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Choose a Key")).toBeInTheDocument();
+    expect(screen.getByLabelText("Key root")).toBeInTheDocument();
+    expect(screen.getByLabelText("Key quality")).toBeInTheDocument();
   });
 
-  it("renders progression bar placeholder", () => {
-    renderApp();
+  it("shows compact key selector in top bar when key is selected", () => {
+    renderApp("G_major");
     expect(
-      screen.getByText("Progression chords will appear here"),
+      screen.getByLabelText("Current key: G Major. Click to change."),
     ).toBeInTheDocument();
+    expect(screen.queryByText("Choose a Key")).not.toBeInTheDocument();
+  });
+
+  it("shows zoom and mode placeholders when key is selected", () => {
+    renderApp("C_major");
+    expect(screen.getByText("Zoom Controls")).toBeInTheDocument();
+    expect(screen.getByText("Mode Toggle")).toBeInTheDocument();
+  });
+
+  it("shows chord graph when key is selected", () => {
+    renderApp("G_major");
+    expect(screen.getByTestId("chord-graph")).toBeInTheDocument();
   });
 });

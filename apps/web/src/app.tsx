@@ -1,6 +1,44 @@
 import ErrorBoundary from "./components/shared/error-boundary";
 import DesktopGate from "./components/shared/desktop-gate";
 import Layout from "./components/shared/layout";
+import KeySelector, {
+  KeySelectorCentered,
+} from "./features/key-selector/key-selector";
+import { useAppSelector } from "./store/hooks";
+import ChordGraph from "./features/chord-graph/chord-graph";
+import { selectCurrentKey, selectIsEditingKey } from "./store/slices/progression-slice";
+
+function GraphAreaContent() {
+  const currentKey = useAppSelector(selectCurrentKey);
+  const isEditing = useAppSelector(selectIsEditingKey);
+  const hasKey = currentKey !== "";
+
+  if (!hasKey || isEditing) {
+    return <KeySelectorCentered />;
+  }
+
+  return <ChordGraph currentKey={currentKey} />;
+}
+
+function AppContent() {
+  const currentKey = useAppSelector(selectCurrentKey);
+  const hasKey = currentKey !== "";
+
+  return (
+    <Layout
+      topBar={
+        hasKey ? (
+          <div className="flex items-center justify-between w-full">
+            <KeySelector />
+            <span className="text-sm text-text-secondary">Zoom Controls</span>
+            <span className="text-sm text-text-secondary">Mode Toggle</span>
+          </div>
+        ) : undefined
+      }
+      graphArea={<GraphAreaContent />}
+    />
+  );
+}
 
 export default function App() {
   return (
@@ -12,7 +50,7 @@ export default function App() {
       }
     >
       <DesktopGate>
-        <Layout />
+        <AppContent />
       </DesktopGate>
     </ErrorBoundary>
   );
