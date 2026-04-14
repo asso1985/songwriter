@@ -9,6 +9,9 @@ import ChordGraph from "./features/chord-graph/chord-graph";
 import { selectCurrentKey, selectIsEditingKey } from "./store/slices/progression-slice";
 import { AudioEngine } from "./features/audio-engine/audio-engine";
 import ProgressionBar from "./features/progression-builder/progression-bar";
+import ModeToggle from "./features/ai-explanation/mode-toggle";
+import ExplanationPanel from "./features/ai-explanation/explanation-panel";
+import { useExplanationTrigger } from "./features/ai-explanation/use-explanation-trigger";
 
 function GraphAreaContent() {
   const currentKey = useAppSelector(selectCurrentKey);
@@ -26,6 +29,9 @@ function AppContent() {
   const currentKey = useAppSelector(selectCurrentKey);
   const hasKey = currentKey !== "";
 
+  // Trigger explanation fetch when chord is selected in Learn Mode
+  useExplanationTrigger();
+
   return (
     <Layout
       topBar={
@@ -33,11 +39,18 @@ function AppContent() {
           <div className="flex items-center justify-between w-full">
             <KeySelector />
             <span className="text-sm text-text-secondary">Zoom Controls</span>
-            <span className="text-sm text-text-secondary">Mode Toggle</span>
+            <ModeToggle />
           </div>
         ) : undefined
       }
-      graphArea={<GraphAreaContent />}
+      graphArea={
+        <div className="flex h-full">
+          <div className="flex-1 min-w-0">
+            <GraphAreaContent />
+          </div>
+          <ExplanationPanel />
+        </div>
+      }
       progressionBar={<ProgressionBar />}
     />
   );

@@ -64,7 +64,7 @@ development_status:
   epic-3: in-progress
   3-1-express-api-proxy-and-llm-service: done
   3-2-flow-mode-emoji-cues: done
-  3-3-learn-mode-toggle-and-explanation-panel: backlog
+  3-3-learn-mode-toggle-and-explanation-panel: done
   epic-3-retrospective: optional
 
   # Epic 4: Accessibility & Keyboard Navigation

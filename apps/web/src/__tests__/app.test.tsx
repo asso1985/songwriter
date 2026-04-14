@@ -68,7 +68,7 @@ describe("App", () => {
   it("shows zoom and mode placeholders when key is selected", () => {
     renderApp("C_major");
     expect(screen.getByText("Zoom Controls")).toBeInTheDocument();
-    expect(screen.getByText("Mode Toggle")).toBeInTheDocument();
+    expect(screen.getByText("Flow")).toBeInTheDocument();
   });
 
   it("shows chord graph when key is selected", () => {

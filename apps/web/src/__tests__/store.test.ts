@@ -26,6 +26,7 @@ describe("Redux Store", () => {
 
     expect(state.ai).toEqual({
       mode: "flow",
+      selectedChordId: null,
       explanation: null,
       status: "idle",
       error: null,
