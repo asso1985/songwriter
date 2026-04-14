@@ -10,6 +10,7 @@ import { selectCurrentKey, selectIsEditingKey } from "./store/slices/progression
 import { AudioEngine } from "./features/audio-engine/audio-engine";
 import ProgressionBar from "./features/progression-builder/progression-bar";
 import ModeToggle from "./features/ai-explanation/mode-toggle";
+import ZoomControls from "./features/chord-graph/zoom-controls";
 import ExplanationPanel from "./features/ai-explanation/explanation-panel";
 import { useExplanationTrigger } from "./features/ai-explanation/use-explanation-trigger";
 import { useKeyboardShortcuts } from "./features/keyboard-shortcuts/use-keyboard-shortcuts";
@@ -41,7 +42,7 @@ function AppContent() {
         hasKey ? (
           <div className="flex items-center justify-between w-full">
             <KeySelector />
-            <span className="text-sm text-text-secondary">Zoom Controls</span>
+            <ZoomControls />
             <ModeToggle />
           </div>
         ) : undefined

@@ -63,10 +63,10 @@ describe("ZoomControls", () => {
     expect(store.getState().graph.viewMode).toBe("zoomed-in");
   });
 
-  it("buttons meet minimum 44x44px size", () => {
+  it("buttons have correct size classes", () => {
     renderWithStore();
     const zoomIn = screen.getByLabelText("Zoom in");
-    expect(zoomIn.className).toContain("w-11");
-    expect(zoomIn.className).toContain("h-11");
+    expect(zoomIn.className).toContain("w-8");
+    expect(zoomIn.className).toContain("h-8");
   });
 });

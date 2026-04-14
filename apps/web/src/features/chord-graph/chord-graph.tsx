@@ -12,7 +12,6 @@ import { addChord } from "../../store/slices/progression-slice";
 import { getChordsByKey } from "../../data/get-chords-by-key";
 import { useForceSimulation, type GraphNode } from "./use-force-simulation";
 import GraphCanvas from "./graph-canvas";
-import ZoomControls from "./zoom-controls";
 import ChordList from "./chord-list";
 
 const ZOOM_IN_MAX_DISTANCE = 1;
@@ -160,7 +159,6 @@ export default function ChordGraph({ currentKey }: ChordGraphProps) {
           onDismissPreview={handleDismissPreview}
         />
       )}
-      <ZoomControls />
       {showChordList && keyData && (
         <ChordList
           chords={keyData.chords}

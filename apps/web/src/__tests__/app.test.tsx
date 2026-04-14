@@ -65,9 +65,9 @@ describe("App", () => {
     expect(screen.queryByText("Choose a Key")).not.toBeInTheDocument();
   });
 
-  it("shows zoom and mode placeholders when key is selected", () => {
+  it("shows zoom controls and mode toggle when key is selected", () => {
     renderApp("C_major");
-    expect(screen.getByText("Zoom Controls")).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Zoom controls" })).toBeInTheDocument();
     expect(screen.getByText("Flow")).toBeInTheDocument();
   });
 

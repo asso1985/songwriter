@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-04-13
-last_updated: 2026-04-14
+last_updated: 2026-04-14T00:00:00Z
 project: songwriter
 project_key: NOKEY
 tracking_system: file-system
@@ -43,7 +43,7 @@ story_location: "{project-root}/_bmad-output/implementation-artifacts"
 
 development_status:
   # Epic 1: Explore the Chord Map
-  epic-1: in-progress
+  epic-1: done
   1-1-monorepo-scaffold-and-development-environment: done
   1-2-design-system-and-app-shell: done
   1-3-key-selector: done
@@ -52,7 +52,7 @@ development_status:
   epic-1-retrospective: optional
 
   # Epic 2: Build and Hear Progressions
-  epic-2: in-progress
+  epic-2: done
   2-1-web-audio-engine-and-chord-synthesis: done
   2-2-click-to-preview-and-commit-to-progression: done
   2-3-progression-bar-and-chord-management: done
@@ -61,14 +61,14 @@ development_status:
   epic-2-retrospective: optional
 
   # Epic 3: AI Music Theory Guidance
-  epic-3: in-progress
+  epic-3: done
   3-1-express-api-proxy-and-llm-service: done
   3-2-flow-mode-emoji-cues: done
   3-3-learn-mode-toggle-and-explanation-panel: done
   epic-3-retrospective: optional
 
   # Epic 4: Accessibility & Keyboard Navigation
-  epic-4: in-progress
+  epic-4: done
   4-1-keyboard-navigation-and-shortcuts: done
   4-2-chord-list-alternative-and-screen-reader-support: done
   epic-4-retrospective: optional

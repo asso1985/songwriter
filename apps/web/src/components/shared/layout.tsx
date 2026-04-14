@@ -24,13 +24,7 @@ export default function Layout({ topBar, graphArea, progressionBar }: LayoutProp
       </a>
 
       <header className="flex items-center justify-between px-4 h-14 border-b border-border bg-surface-elevated shrink-0">
-        {topBar ?? (
-          <div className="flex items-center justify-between w-full">
-            <span className="text-sm text-text-secondary">Key Selector</span>
-            <span className="text-sm text-text-secondary">Zoom Controls</span>
-            <span className="text-sm text-text-secondary">Mode Toggle</span>
-          </div>
-        )}
+        {topBar}
       </header>
 
       <main id="graph-area" className="flex-1 min-h-0" tabIndex={-1}>
