@@ -410,6 +410,17 @@ export default function GraphCanvas({
       }
 
       const { mx, my } = getMousePos(e);
+
+      // Show pointer cursor when hovering over the "+" commit button
+      const canvas = canvasRef.current;
+      if (canvas) {
+        if (isCommitButtonHit(mx, my)) {
+          canvas.style.cursor = "pointer";
+        } else if (!isDragging.current) {
+          canvas.style.cursor = "";
+        }
+      }
+
       const nodeId = findNodeAt(mx, my);
       if (nodeId !== lastHoveredRef.current) {
         lastHoveredRef.current = nodeId;
